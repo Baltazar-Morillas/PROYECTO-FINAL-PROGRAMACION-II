@@ -10,14 +10,15 @@
 #include <windows.h>
 
 typedef struct{
-    stEstadisticas estadisticas;
+    char nombre[20];
     stClase clase;
-    struct listaHabilidades * habilidades;
 }stPersonaje;
 
 typedef struct{
+    char nombreE[20];
+    int IdEnemigo;
     stEstadisticas estadisticasE;
-    struct listaHabilidades * habilidadesE;
+    char sprite[1000];
 
 }stEnemigo;
 

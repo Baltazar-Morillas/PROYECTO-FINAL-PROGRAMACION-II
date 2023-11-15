@@ -8,20 +8,15 @@
 typedef struct stClase{
     char nombreClase[30];
     int idClase;
-    int nivel;
+    stEstadisticas estadisticas;
+    listaHabilidades * habilidades;
 }stClase;
 
 typedef struct stRegistroClase{
-    stClase clase;
+    char nombreClase[30];
+    int idClase;
     stEstadisticas estadisticas;
-    stRegistroHabilidades habilidad;
 }stRegistroClase;
-
-typedef struct celdaClases{
-    stClase clase;
-    stEstadisticas estadisticasClase;
-    struct listaHabilidades * habilidadesClase;
-}celdaClases;
 
 
 
