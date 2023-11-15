@@ -7,7 +7,7 @@
 
 typedef struct stClase{
     char nombreClase[30];
-    int idClase
+    int idClase;
     int nivel;
 }stClase;
 
@@ -22,5 +22,7 @@ typedef struct celdaClases{
     stEstadisticas estadisticasClase;
     struct listaHabilidades * habilidadesClase;
 }celdaClases;
+
+
 
 #endif // CLASES_H_INCLUDED
