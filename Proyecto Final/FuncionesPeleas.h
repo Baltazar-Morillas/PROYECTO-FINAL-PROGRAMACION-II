@@ -5,15 +5,13 @@
 #include "LibreriaPrincipal.h"
 
 
-
-
 int funcionDePelea(stPersonaje player, stEnemigo enemy);
 void cargarMatrizEscena(char matrizEscena[][50], char escena[]);
 void mostrarEscena(char escena[][50]);
-int barraDeVida(int vidaMaxima, int vidaActual, int danioRecibido);
-int menuCombate(int * vidaActual, int * vidaEnemigo, int * danioRecibidoP, int *danioRecibidoE, int armaJugador);
+int barraDeVida(int vidaMaxima, int vidaActual);
+int menuCombate(int * vidaActual, int * vidaEnemigo, stPersonaje player, stEnemigo enemy);
 void cajaDeTexto(int eleccion, int danioRecibidoP, int danioRecibidoE, int turno);
-int accionesEnemigo(int * vidaActual, int * vidaEnemigo, int * danioRecibidoP, int *danioRecibidoE, int danioE);
+int accionesEnemigo(int * vidaActual, int * vidaEnemigo,stPersonaje player, stEnemigo enemy);
 
 
 ///Funciones estadisticas (temporal)

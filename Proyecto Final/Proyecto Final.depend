@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1700052316 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\funcionespeleas.c
+1700149250 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\funcionespeleas.c
 	"FuncionesPeleas.h"
 
-1700050594 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\funcionespeleas.h
+1700144406 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\funcionespeleas.h
 	"LibreriaPrincipal.h"
 
-1699999454 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\estadisticas.h
+1700144210 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\estadisticas.h
 
-1700051524 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\main.c
+1700148974 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\main.c
 	<stdio.h>
 	<stdlib.h>
 	"LibreriaPrincipal.h"

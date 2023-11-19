@@ -12,8 +12,8 @@ int main()
     stPersonaje player;
     stEnemigo enemy;
 
-    player.estadisticas = cargarStats(player.estadisticas);
-    enemy.estadisticasE = cargarStats(enemy.estadisticasE);
+    //player.clase.estadisticas = cargarStats(player.clase.estadisticas);
+   //enemy.estadisticasE = cargarStats(enemy.estadisticasE);
 
     victoria = funcionDePelea(player, enemy);
 

@@ -4,7 +4,7 @@
 ///ESTRUCTURAS
 typedef struct stEstadisticas{
     int vitalidad;
-    int defensa;
+    float defensa;
     int ataque;
     int mana;
     int agilidad;
