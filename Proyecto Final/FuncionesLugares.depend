@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1700461838 source:c:\users\usuario\desktop\funcioneshistoria\main.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	"conio.h"
+	"FuncionesHistoria.h"
+
+1700461862 c:\users\usuario\desktop\funcioneshistoria\funcioneshistoria.h
+
