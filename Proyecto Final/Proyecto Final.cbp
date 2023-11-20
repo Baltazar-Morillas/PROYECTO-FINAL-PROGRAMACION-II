@@ -50,6 +50,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="estadisticas.h" />
+		<Unit filename="filas.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="filas.h" />
 		<Unit filename="habilidades.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -57,10 +61,6 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
-		</Extensions>
+		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

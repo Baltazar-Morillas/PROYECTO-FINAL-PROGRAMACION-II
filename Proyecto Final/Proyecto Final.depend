@@ -1,23 +1,53 @@
 # depslib dependency file v1.0
-1700149250 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\funcionespeleas.c
+1700508862 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\funcionespeleas.c
 	"FuncionesPeleas.h"
 
-1700144406 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\funcionespeleas.h
-	"LibreriaPrincipal.h"
-
-1700144210 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\estadisticas.h
-
-1700148974 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\main.c
+1700508844 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\funcionespeleas.h
 	<stdio.h>
 	<stdlib.h>
-	"LibreriaPrincipal.h"
-	"FuncionesPeleas.h"
-
-1700055106 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\clases.h
+	<time.h>
+	<math.h>
+	<windows.h>
+	<string.h>
 	"habilidades.h"
 	"estadisticas.h"
+	"clases.h"
+	"filas.h"
 
-1700055106 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\habilidades.h
+1700497066 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\estadisticas.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<time.h>
+	<math.h>
+	<windows.h>
+
+1700503148 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<math.h>
+	<windows.h>
+	"habilidades.h"
+	"estadisticas.h"
+	"clases.h"
+	"FuncionesPeleas.h"
+
+1700497066 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\clases.h
+	"estadisticas.h"
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<math.h>
+	<windows.h>
+
+1700497064 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\habilidades.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<math.h>
+	<windows.h>
 
 1700002739 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\main.c
 	<stdio.h>
@@ -93,4 +123,20 @@
 
 1700458047 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\estadisticas.c
 	"estadisticas.h"
+
+1700497066 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\clases.c
+	"clases.h"
+
+1700497066 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\estadisticas.c
+	"estadisticas.h"
+
+1700497067 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\habilidades.c
+	"habilidades.h"
+
+1700497066 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\filas.c
+	"filas.h"
+
+1700497067 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\filas.h
+	<stdio.h>
+	<stdlib.h>
 

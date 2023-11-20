@@ -13,7 +13,15 @@ const char archivitoClases[]="archivitoClases.bin";
 
 int main()
 {
-    int id=0;
+    int id=0, victoria, pocionRoja = 3, pocionAzul = 3;
+    stPersonaje player;
+    stEnemigo enemy;
+
+    player.clase.estadisticas = cargarStats(player.clase.estadisticas);
+    enemy.estadisticasE = cargarStats (enemy.estadisticasE);
+
+    victoria = funcionDePelea(player, enemy, pocionRoja, pocionAzul);
+
     /*
     system("color 0B");
 
