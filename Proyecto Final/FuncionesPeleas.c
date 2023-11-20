@@ -288,25 +288,3 @@ int accionesEnemigo(int * vidaActual, int * vidaEnemigo, stPersonaje player, stE
     return accion;
 
 }
-
-
-
-///funciones estadisticas temporal
-
-
-
-stEstadisticas cargarStats(stEstadisticas a)
-{
-    printf("vitalidad: ");
-    scanf("%i", &a.vitalidad);
-    printf("ataque: ");
-    scanf("%i", &a.ataque);
-    printf("defensa: ");
-    scanf("%f", &a.defensa);
-    printf("agilidad: ");
-    scanf("%i", &a.agilidad);
-    printf("critico: ");
-    scanf("%i", &a.critico);
-
-    return a;
-}
