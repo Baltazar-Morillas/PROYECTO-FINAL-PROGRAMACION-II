@@ -13,6 +13,9 @@ const char archivitoClases[]="archivitoClases.bin";
 
 int main()
 {
+
+    ///Cosas de chuli
+    system("color 0B");
     int id=0, victoria, pocionRoja = 3, pocionAzul = 3;
     stPersonaje player;
     stEnemigo enemy;
@@ -22,8 +25,14 @@ int main()
 
     victoria = funcionDePelea(player, enemy, pocionRoja, pocionAzul);
 
-    /*
-    system("color 0B");
+
+
+    ///Cosas de balta
+ /*   int id=0, validos=0;
+    stClase celdaClase[5];
+    stPersonaje personaje;
+
+
 
     int victoria;
     stPersonaje player;
@@ -33,18 +42,22 @@ int main()
    //enemy.estadisticasE = cargarStats(enemy.estadisticasE);
 
     victoria = funcionDePelea(player, enemy);
-    */
+
     //cargarArchivoHabilidades(archivitoHabilidades);
     //mostrarArchivitoHabilidades(archivitoHabilidades);
-    /*printf("\nIngrese el id de la habilidad a modificar: ");
+    printf("\nIngrese el id de la habilidad a modificar: ");
     scanf("%d", &id);
-    modificarArchivoHabilidades(archivitoHabilidades, id);*/
-    /*
+    modificarArchivoHabilidades(archivitoHabilidades, id);
+
     cargarArchivoClases(archivitoClases);
     mostrarArchivoClases(archivitoClases);
     printf("\nIngrese el id de la clase a modificar: ");
     scanf("%d", &id);
-    modificarArchivoClases(archivitoClases, id);*/
-
+    modificarArchivoClases(archivitoClases, id);
+    validos=pasarArchivoClaseToCelda(archivitoClases, celdaClase, 3);
+    pasarArchivoHabilidadesToCLase(celdaClase, archivitoHabilidades, validos);
+    personaje=cargarPersonaje(celdaClase, validos);
+    system ("cls");
+    mostrarPersonaje(personaje);*/
     return 0;
 }
