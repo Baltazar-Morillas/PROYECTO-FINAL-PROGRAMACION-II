@@ -17,18 +17,6 @@ typedef struct stClase{
     struct listaHabilidades * habilidades;
 }stClase;
 
-typedef struct{
-    char nombre[20];
-    stClase clase;
-}stPersonaje;
-
-typedef struct{
-    char nombreE[20];
-    int IdEnemigo;
-    stEstadisticas estadisticasE;
-    char sprite[1000];
-}stEnemigo;
-
 typedef struct stRegistroClase{
     char nombreClase[30];
     int idClase;
@@ -44,4 +32,10 @@ void modificarArchivoClases(char archivito[], int id);
 stRegistroClase modificarClases(stRegistroClase aux);
 stRegistroClase modificarCampoClase(stRegistroClase aux, char sw);
 char menuModificarClases();
+int pasarArchivoClaseToCelda(char archivito[], stClase celdaClase[], int dimension);
+int pasarArchivoClaseToCelda(char archivito[], stClase celdaClase[], int dimension);
+int altaClase(stClase celdaClase[], stRegistroClase aux, int validos);
+int buscarClaseCelda(stClase celdaClase[], stRegistroClase clase, int validos);
+int crearNuevaClase(stClase celdaClase[], stRegistroClase nuevo, int validos);
+char menuClases();
 #endif // CLASES_H_INCLUDED

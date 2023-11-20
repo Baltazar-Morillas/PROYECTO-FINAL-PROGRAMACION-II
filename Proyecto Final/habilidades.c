@@ -190,3 +190,78 @@ char menuModificarHabilidades()
     while(opcion < '0' || opcion > '9');
     return opcion;
 }
+
+void pasarArchivoHabilidadesToCLase(stClase celdaClase[], char archivito[], int validos){
+    FILE * buffer=fopen(archivito, "rb");
+    stRegistroHabilidades aux;
+    if(buffer){
+        while(fread(&aux, sizeof(stRegistroHabilidades), 1, buffer)>0){
+            altaHabilidad(celdaClase, aux, validos);
+
+        }
+        fclose(buffer);
+    }else{
+        printf("\nERROR, NO SE PUDO ABRIR EL ARCHIVO!!!!\n");
+    }
+}
+
+void altaHabilidad(stClase celdaClase[], stRegistroHabilidades habilidad, int validos){
+    listaHabilidades * lista=crearNodoLista(habilidad);
+    int pos=buscarHabilidadClase(celdaClase, habilidad.idClase, validos);
+    celdaClase[pos].habilidades=agregarAlFinal(celdaClase[pos].habilidades, lista);
+}
+
+listaHabilidades * agregarAlFinal(listaHabilidades * lista, listaHabilidades * nuevo){
+    if(lista==NULL){
+        lista=nuevo;
+    }else{
+        listaHabilidades * ultimo=buscarUltimo(lista);
+        ultimo->siguiente=nuevo;
+    }
+    return lista;
+}
+
+listaHabilidades * buscarUltimo(listaHabilidades * lista){
+    listaHabilidades * seg=lista;
+    if(seg!=NULL){
+        while(seg->siguiente!=NULL){
+            seg=seg->siguiente;
+        }
+    }
+    return seg;
+}
+
+int buscarHabilidadClase(stClase celdaClase[], int id, int validos){
+    int pos=-1, i=0;
+    while(i<validos && pos==-1){
+        if(id==celdaClase[i].idClase){
+            pos=i;
+        }
+        i++;
+    }
+    return pos;
+}
+
+listaHabilidades * crearNodoLista(stRegistroHabilidades dato){
+    listaHabilidades * aux = (listaHabilidades*) malloc(sizeof(listaHabilidades));
+    aux->siguiente=NULL;
+    aux=registroToLista(aux, dato);
+    return aux;
+}
+
+listaHabilidades * registroToLista(listaHabilidades * nodo, stRegistroHabilidades dato){
+    nodo->alta=dato.alta;
+    nodo->damage=dato.damage;
+    nodo->efecto=dato.efecto;
+    nodo->idClase=dato.idClase;
+    nodo->idHabilidad=dato.idHabilidad;
+    nodo->mana=dato.mana;
+    strcpy(nodo->nombreHabilidad, dato.nombreHabilidad);
+    strcpy(nodo->sprite, dato.sprite);
+    nodo->usos=dato.usos;
+    return nodo;
+}
+
+listaHabilidades * inicLista(){
+    return NULL;
+}

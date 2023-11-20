@@ -20,4 +20,6 @@ typedef struct{
 
 stEstadisticas cargarStats(stEstadisticas a);
 void mostrarEstadisticas(stEstadisticas aux);
+stEstadisticas crearEstructuraEstadisticas(stEstadisticas dato);
+stEstadisticas datosToEstadistica(stEstadisticas aux, stEstadisticas dato);
 #endif // ESTADISTICAS_H_INCLUDED

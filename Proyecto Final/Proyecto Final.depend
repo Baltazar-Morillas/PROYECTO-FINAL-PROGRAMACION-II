@@ -34,11 +34,19 @@
 	<math.h>
 	<windows.h>
 
-1700449902 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\funcionespeleas.c
+1700508842 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\funcionespeleas.c
 	"FuncionesPeleas.h"
 
-1700426131 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\funcionespeleas.h
-	"LibreriaPrincipal.h"
+1700507226 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\funcionespeleas.h
+	"clases.h"
+	"habilidades.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<time.h>
+	<math.h>
+	<windows.h>
 
 1700454956 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\libreriaprincipal.h
 	"estadisticas.h"
@@ -50,7 +58,7 @@
 	<math.h>
 	<windows.h>
 
-1700456381 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\estadisticas.h
+1700504322 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\estadisticas.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -59,7 +67,7 @@
 	<math.h>
 	<windows.h>
 
-1700462225 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\clases.h
+1700508619 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\clases.h
 	"estadisticas.h"
 	<stdio.h>
 	<stdlib.h>
@@ -67,14 +75,17 @@
 	<math.h>
 	<windows.h>
 
-1700458844 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\habilidades.h
+1700508618 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\habilidades.h
+	"clases.h"
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
+	<conio.h>
 	<time.h>
 	<math.h>
 	<windows.h>
 
-1700462139 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\main.c
+1700509455 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -85,12 +96,12 @@
 	"clases.h"
 	"FuncionesPeleas.h"
 
-1700462089 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\habilidades.c
+1700509132 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\habilidades.c
 	"habilidades.h"
 
-1700462093 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\clases.c
+1700508842 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\clases.c
 	"clases.h"
 
-1700458047 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\estadisticas.c
+1700504638 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\estadisticas.c
 	"estadisticas.h"
 

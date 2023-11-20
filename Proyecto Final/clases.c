@@ -169,3 +169,67 @@ char menuModificarClases()
     while(opcion < '0' || opcion > '9');
     return opcion;
 }
+
+char menuClases()
+{
+    char opcion;
+    do
+    {
+        system ("cls");
+        printf ("\n\n\n\t\t\t\t\t CLASES\n");
+        printf ("\n\t\t\t\t\t[ 1 ] - GUERRERO");
+        printf ("\n\t\t\t\t\t[ 2 ] - MAGO");
+        printf ("\n\t\t\t\t\t[ 3 ] - TANQUE");
+        printf ("\n\t\t\t\t\t[ 4 ] - ARQUERO");
+        fflush(stdin);
+        opcion = getche();
+    }
+    while(opcion < '1' || opcion > '4');
+    return opcion;
+}
+
+int pasarArchivoClaseToCelda(char archivito[], stClase celdaClase[], int dimension){
+    FILE * buffer = fopen(archivito, "rb");
+    int validos=0;
+    stRegistroClase aux;
+    if(buffer){
+        while(fread(&aux, sizeof(stRegistroClase), 1, buffer)>0){
+            validos=altaClase(celdaClase, aux, validos);
+        }
+        fclose(buffer);
+    }else{
+        printf("\nERROR, AL ABRIR EL ARCHIVO DE CLASES!!!!\n");
+    }
+    return validos;
+}
+
+int altaClase(stClase celdaClase[], stRegistroClase aux, int validos){
+    stEstadisticas stats = crearEstructuraEstadisticas(aux.estadisticas);
+    int pos=buscarClaseCelda(celdaClase, aux, validos);
+    if(pos==-1){
+        validos=crearNuevaClase(celdaClase, aux, validos);
+        pos=validos-1;
+    }
+    celdaClase[pos].estadisticas=stats;
+    return validos;
+}
+
+int buscarClaseCelda(stClase celdaClase[], stRegistroClase clase, int validos){
+    int pos=-1, i=0;
+    while(i<validos && pos==-1){
+        if((strcmpi(clase.nombreClase, celdaClase[i].nombreClase)==0) && (clase.idClase==celdaClase[validos].idClase)){
+            pos=i;
+        }
+        i++;
+    }
+    return pos;
+}
+
+int crearNuevaClase(stClase celdaClase[], stRegistroClase nuevo, int validos){
+    celdaClase[validos].alta=nuevo.alta;
+    celdaClase[validos].idClase=nuevo.idClase;
+    celdaClase[validos].habilidades=inicLista();
+    strcpy(celdaClase[validos].nombreClase, nuevo.nombreClase);
+    validos++;
+    return validos;
+}

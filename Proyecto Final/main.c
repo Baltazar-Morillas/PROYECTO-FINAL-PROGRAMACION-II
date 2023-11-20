@@ -13,7 +13,9 @@ const char archivitoClases[]="archivitoClases.bin";
 
 int main()
 {
-    int id=0;
+    int id=0, validos=0;
+    stClase celdaClase[5];
+    stPersonaje personaje;
     /*
     system("color 0B");
 
@@ -37,6 +39,10 @@ int main()
     printf("\nIngrese el id de la clase a modificar: ");
     scanf("%d", &id);
     modificarArchivoClases(archivitoClases, id);*/
-
+    validos=pasarArchivoClaseToCelda(archivitoClases, celdaClase, 3);
+    pasarArchivoHabilidadesToCLase(celdaClase, archivitoHabilidades, validos);
+    personaje=cargarPersonaje(celdaClase, validos);
+    system ("cls");
+    mostrarPersonaje(personaje);
     return 0;
 }
