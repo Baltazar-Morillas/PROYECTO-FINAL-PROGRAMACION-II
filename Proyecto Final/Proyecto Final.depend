@@ -1,36 +1,47 @@
 # depslib dependency file v1.0
-1700149250 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\funcionespeleas.c
+1700459353 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\funcionespeleas.c
 	"FuncionesPeleas.h"
 
-1700144406 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\funcionespeleas.h
+1700451922 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\funcionespeleas.h
 	"LibreriaPrincipal.h"
 
-1700144210 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\estadisticas.h
+1700459057 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\estadisticas.h
 
-1700148974 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\main.c
+1700451989 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\main.c
 	<stdio.h>
 	<stdlib.h>
 	"LibreriaPrincipal.h"
-	"FuncionesPeleas.h"
 
 1700055106 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\clases.h
 	"habilidades.h"
 	"estadisticas.h"
 
-1700055106 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\habilidades.h
+1700459750 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\habilidades.h
 
 1700002739 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\main.c
 	<stdio.h>
 	<stdlib.h>
 	"clases.h"
 
-1700055106 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\libreriaprincipal.h
+1700459682 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\libreriaprincipal.h
 	"estadisticas.h"
 	"clases.h"
 	"habilidades.h"
+	"filas.h"
+	"FuncionesPeleas.h"
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 	<math.h>
 	<windows.h>
+
+1700449539 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\filas.h
+	<stdio.h>
+	<stdlib.h>
+
+1700449530 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\filas.c
+	"filas.h"
+
+1700048073 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\libreriaprincipal.c
+	"LibreriaPrincipal.h"
 

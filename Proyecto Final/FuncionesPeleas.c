@@ -5,6 +5,8 @@
 
 int funcionDePelea(stPersonaje player, stEnemigo enemy)
 {
+    Fila * accionesCombate;
+    inicFila(accionesCombate);
     int victoria, vidaActual = player.clase.estadisticas.vitalidad, vidaActualEnemigo = enemy.estadisticasE.vitalidad,danioRecibidoP, danioRecibidoE, turno = 1, accionRealizadaJ, accionRealizadaE;
     char matrizEscena[20][50];
     char escena[1000] = "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
@@ -13,21 +15,17 @@ int funcionDePelea(stPersonaje player, stEnemigo enemy)
     do
     {
         cargarMatrizEscena(matrizEscena, escena);
-        cajaDeTexto(accionRealizadaJ, danioRecibidoP, danioRecibidoE, turno);
+        cajaDeTexto(accionesCombate, turno);
         mostrarEscena(matrizEscena);
         printf("Player ");
         vidaActual = barraDeVida(player.clase.estadisticas.vitalidad, vidaActual);
         printf("    ");
         printf("Enemy");
         vidaActualEnemigo = barraDeVida(enemy.estadisticasE.vitalidad, vidaActualEnemigo);
-        danioRecibidoP = 0;
-        danioRecibidoE = 0;
-        system("pause");
-
-        accionRealizadaJ = menuCombate(&vidaActual,&vidaActualEnemigo, player, enemy);
-        accionRealizadaE = accionesEnemigo(&vidaActual, &vidaActualEnemigo, player, enemy);
+        accionRealizadaJ = menuCombate(&vidaActual,&vidaActualEnemigo, player, enemy, accionesCombate);
+        accionRealizadaE = accionesEnemigo(&vidaActual, &vidaActualEnemigo, player, enemy, accionesCombate);
         system("cls");
-        cajaDeTexto(accionRealizadaJ, danioRecibidoP, danioRecibidoE, turno);
+        cajaDeTexto(accionesCombate, turno);
         mostrarEscena(matrizEscena);
         printf("Player ");
         vidaActual = barraDeVida(player.clase.estadisticas.vitalidad, vidaActual);
@@ -143,10 +141,10 @@ int barraDeVida(int vidaMaxima, int vidaActual)
 
 }
 
-int menuCombate(int * vidaActual, int * vidaEnemigo, stPersonaje player, stEnemigo enemy)
+int menuCombate(int * vidaActual, int * vidaEnemigo, stPersonaje player, stEnemigo enemy, Fila * accionesCombate)
 {
-    int eleccion, criticHit, critic = 19-player.clase.estadisticas.critico;
-
+    int eleccion, criticHit, critic = 21-player.clase.estadisticas.critico,succesfulDodge, dodge = 21 - enemy.estadisticasE.agilidad;
+    srand(time(NULL));
     if(*vidaActual > 0)
     {
         printf("\n\n\t\t\t\t1.Pelear   -    2.Habilidades    -     3.items\n");
@@ -156,27 +154,46 @@ int menuCombate(int * vidaActual, int * vidaEnemigo, stPersonaje player, stEnemi
         }
         while(eleccion>3 || eleccion < 1);
 
+
         switch(eleccion)
         {
         case 1:
-            srand(time(NULL));
-            criticHit = rand() % critic;
-            if(criticHit == 0)
+            succesfulDodge = rand() % dodge;
+
+            if(succesfulDodge != 0)
             {
-                *vidaEnemigo = *vidaEnemigo - ((player.clase.estadisticas.ataque * enemy.estadisticasE.defensa)*2);
+
+                criticHit = rand() % critic;
+                if(criticHit == 0)
+                {
+                    *vidaEnemigo = *vidaEnemigo - ((player.clase.estadisticas.ataque * enemy.estadisticasE.defensa)*2);
+                }
+                else
+                {
+                    *vidaEnemigo = *vidaEnemigo - (player.clase.estadisticas.ataque * enemy.estadisticasE.defensa);
+                }
+                agregar(accionesCombate, 0);
+                if(criticHit == 0)
+                {
+                    agregar(accionesCombate, 5);
+                }
             }
             else
             {
-                *vidaEnemigo = *vidaEnemigo - (player.clase.estadisticas.ataque * enemy.estadisticasE.defensa);
+                agregar(accionesCombate, 6);
             }
             break;
         case 2:
             printf("Menu de habilidades anashe\n");
+            agregar(accionesCombate, 1);
             break;
         case 3:
             printf("Menu de items anashe\n");
+            agregar(accionesCombate, 3);
             break;
         }
+
+
     }
     else
     {
@@ -185,74 +202,87 @@ int menuCombate(int * vidaActual, int * vidaEnemigo, stPersonaje player, stEnemi
     return eleccion;
 }
 
-void cajaDeTexto(int eleccion, int danioRecibidoP, int danioRecibidoE, int turno)
+void cajaDeTexto(Fila * accionesCombate, int turno)
 {
     printf("\t\t\t\t++++++++++++++++++++++++++++++++++++++++\n");
-    printf("\t\t\t\t\tEstas en el turno %i\n", turno);
+    printf("\t\t\t\t\tEstas en el turno %i\n\n", turno);
     if(turno == 1)
     {
         printf("\n");
         printf("\t\t\t\t\tUn monstruo te ataca\n");
-        printf("\n");
     }
-    else
+
+
+    while(!filaVacia(accionesCombate))
     {
-        switch(eleccion)
+        switch(extraer(accionesCombate))
         {
+        case 0:
+            printf("\t\t\t\t\tRealizaste un ataque\n");
+            break;
         case 1:
-            printf("\t\t\t\tRealizaste un ataque\n");
+            printf("\t\t\t\t\tUtilizaste una habilidad\n");
             break;
         case 2:
-            printf("\t\t\t\tRealizaste una habilidad\n");
+            printf("\t\t\t\t\tUsaste un item\n");
             break;
         case 3:
-            printf("\t\t\t\tutilizaste un item\n");
+            printf("\t\t\t\t\tEl enemigo te ataco\n");
             break;
-        }
-
-        if(danioRecibidoP >= 0)
-        {
-            printf("\t\t\t\tRecibiste %i puntos de daño\n", danioRecibidoP);
-        }
-        else
-        {
-            printf("\t\t\t\tTe curaste %i puntos de vida\n", danioRecibidoP);
-        }
-
-        if(danioRecibidoE >= 0)
-        {
-            printf("\t\t\t\tEl enemigo recibio %i puntos de daño\n", danioRecibidoE);
-        }
-        else
-        {
-            printf("\t\t\t\tEl enemigo se curo %i puntos de vida\n", danioRecibidoE);
+        case 4:
+            printf("\t\t\t\t\tEl enemigo uso una habilidad\n");
+            break;
+        case 5:
+            printf("\t\t\t\t\tFue un ataque critico!\n");
+            break;
+        case 6:
+            printf("\t\t\t\t\tEl enemigo esquivo tu ataque!\n");
+            break;
+        case 7:
+            printf("\t\t\t\t\tRealizaste un ataque\n");
+            break;
+        case 8:
+            printf("\t\t\t\t\tRealizaste un ataque\n");
+            break;
         }
     }
 
-    printf("\t\t\t\t++++++++++++++++++++++++++++++++++++++++\n");
+
+
+    printf("\n\t\t\t\t++++++++++++++++++++++++++++++++++++++++\n");
 }
 
-int accionesEnemigo(int * vidaActual, int * vidaEnemigo, stPersonaje player, stEnemigo enemy)
+int accionesEnemigo(int * vidaActual, int * vidaEnemigo, stPersonaje player, stEnemigo enemy, Fila * accionesCombate)
 {
-    int accion, criticHit, critic = 19 - enemy.estadisticasE.critico;
+    int accion, criticHit, critic = 19 - enemy.estadisticasE.critico, succesfulDodge, dodge = 21 - player.clase.estadisticas.agilidad;
     srand(time(NULL));
-    accion = rand() % 1;
+    accion = rand() % 2;
     switch(accion)
     {
     case 0:
+        succesfulDodge = rand() % dodge;
 
-        criticHit = rand() % critic;
-        if(criticHit == 0)
+        if(succesfulDodge != 0)
         {
-            *vidaActual = *vidaActual - ((enemy.estadisticasE.ataque * player.clase.estadisticas.defensa)*2);
+            criticHit = rand() % critic;
+            if(criticHit == 0)
+            {
+                *vidaActual = *vidaActual - ((enemy.estadisticasE.ataque * player.clase.estadisticas.defensa)*2);
+            }
+            else
+            {
+                *vidaActual = *vidaActual - (enemy.estadisticasE.ataque * player.clase.estadisticas.defensa);
+            }
+            agregar(accionesCombate, 3);
         }
         else
         {
-            *vidaActual = *vidaActual - (enemy.estadisticasE.ataque * player.clase.estadisticas.defensa);
+            agregar(accionesCombate, 6);
         }
         break;
     case 1:
         printf("El monstruo realizo una habilidad habilidad\n");
+        agregar(accionesCombate, 4);
         break;
     }
     return accion;

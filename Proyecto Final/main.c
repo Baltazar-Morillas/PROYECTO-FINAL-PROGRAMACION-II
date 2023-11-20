@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "LibreriaPrincipal.h"
-#include "FuncionesPeleas.h"
+
 
 
 int main()
@@ -12,8 +12,8 @@ int main()
     stPersonaje player;
     stEnemigo enemy;
 
-    //player.clase.estadisticas = cargarStats(player.clase.estadisticas);
-   //enemy.estadisticasE = cargarStats(enemy.estadisticasE);
+    player.clase.estadisticas = cargarStats(player.clase.estadisticas);
+    enemy.estadisticasE = cargarStats(enemy.estadisticasE);
 
     victoria = funcionDePelea(player, enemy);
 

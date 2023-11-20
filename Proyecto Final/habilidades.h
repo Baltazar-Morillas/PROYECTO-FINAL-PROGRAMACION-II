@@ -2,7 +2,7 @@
 #define HABILIDADES_H_INCLUDED
 
 ///ESTRUCTURAS
-typedef struct stRegistroHabilidades{
+ stRegistroHabilidades{
     char nombreHabilidad[30];
     int damage;
     int idHabilidad;

@@ -12,5 +12,5 @@ typedef struct stEstadisticas{
 }stEstadisticas;
 
 
-
+typedef struct
 #endif // ESTADISTICAS_H_INCLUDED

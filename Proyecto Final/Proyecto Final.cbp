@@ -37,13 +37,14 @@
 		<Unit filename="FuncionesPeleas.h" />
 		<Unit filename="LibreriaPrincipal.c">
 			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="LibreriaPrincipal.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
+		<Unit filename="LibreriaPrincipal.h" />
 		<Unit filename="clases.h" />
 		<Unit filename="estadisticas.h" />
+		<Unit filename="filas.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="filas.h" />
 		<Unit filename="habilidades.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
