@@ -3,13 +3,13 @@
 #include "estadisticas.h"
 #include "clases.h"
 #include "habilidades.h"
-#include "filas.h"
-#include "FuncionesPeleas.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
 #include <windows.h>
+
+
 
 
 

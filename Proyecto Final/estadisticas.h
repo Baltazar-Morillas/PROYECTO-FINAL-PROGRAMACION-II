@@ -1,8 +1,15 @@
 #ifndef ESTADISTICAS_H_INCLUDED
 #define ESTADISTICAS_H_INCLUDED
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <conio.h>
+#include <time.h>
+#include <math.h>
+#include <windows.h>
 
 ///ESTRUCTURAS
-typedef struct stEstadisticas{
+typedef struct{
     int vitalidad;
     float defensa;
     int ataque;
@@ -11,6 +18,6 @@ typedef struct stEstadisticas{
     int critico;
 }stEstadisticas;
 
-
-typedef struct
+stEstadisticas cargarStats(stEstadisticas a);
+void mostrarEstadisticas(stEstadisticas aux);
 #endif // ESTADISTICAS_H_INCLUDED
