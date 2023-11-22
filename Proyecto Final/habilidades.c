@@ -208,20 +208,22 @@ void pasarArchivoHabilidadesToCLase(stClase celdaClase[], char archivito[], int 
 void altaHabilidad(stClase celdaClase[], stRegistroHabilidades habilidad, int validos){
     listaHabilidades * lista=crearNodoLista(habilidad);
     int pos=buscarHabilidadClase(celdaClase, habilidad.idClase, validos);
-    celdaClase[pos].habilidades=agregarAlFinal(celdaClase[pos].habilidades, lista);
+    printf("%i", pos);
+    celdaClase[pos].habilidades=agregarAlFinalHabilidad(celdaClase[pos].habilidades, lista);
+
 }
 
-listaHabilidades * agregarAlFinal(listaHabilidades * lista, listaHabilidades * nuevo){
+listaHabilidades * agregarAlFinalHabilidad(listaHabilidades * lista, listaHabilidades * nuevo){
     if(lista==NULL){
         lista=nuevo;
     }else{
-        listaHabilidades * ultimo=buscarUltimo(lista);
+        listaHabilidades * ultimo=buscarUltimoHabilidad(lista);
         ultimo->siguiente=nuevo;
     }
     return lista;
 }
 
-listaHabilidades * buscarUltimo(listaHabilidades * lista){
+listaHabilidades * buscarUltimoHabilidad(listaHabilidades * lista){
     listaHabilidades * seg=lista;
     if(seg!=NULL){
         while(seg->siguiente!=NULL){
@@ -262,6 +264,6 @@ listaHabilidades * registroToLista(listaHabilidades * nodo, stRegistroHabilidade
     return nodo;
 }
 
-listaHabilidades * inicLista(){
+listaHabilidades * inicListaHabilidad(){
     return NULL;
 }

@@ -45,10 +45,11 @@ stRegistroHabilidades modificarCampoHabilidad(stRegistroHabilidades aux, char sw
 char menuModificarHabilidades();
 void pasarArchivoHabilidadesToCLase(stClase celdaClase[], char archivito[], int validos);
 void altaHabilidad(stClase celdaClase[], stRegistroHabilidades habilidad, int validos);
-listaHabilidades * agregarAlFinal(listaHabilidades * lista, listaHabilidades * nuevo);
-listaHabilidades * buscarUltimo(listaHabilidades * lista);
+listaHabilidades * agregarAlFinalHabilidad(listaHabilidades * lista, listaHabilidades * nuevo);
+listaHabilidades * agregarAlFinalHabilidad(listaHabilidades * lista, listaHabilidades * nuevo);
+listaHabilidades * buscarUltimoHabilidad(listaHabilidades * lista);
 int buscarHabilidadClase(stClase celdaClase[], int id, int validos);
 listaHabilidades * crearNodoLista(stRegistroHabilidades dato);
 listaHabilidades * registroToLista(listaHabilidades * nodo, stRegistroHabilidades dato);
-listaHabilidades * inicLista();
+listaHabilidades * inicListaHabilidad();
 #endif // HABILIDADES_H_INCLUDED

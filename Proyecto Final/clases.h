@@ -33,7 +33,6 @@ stRegistroClase modificarClases(stRegistroClase aux);
 stRegistroClase modificarCampoClase(stRegistroClase aux, char sw);
 char menuModificarClases();
 int pasarArchivoClaseToCelda(char archivito[], stClase celdaClase[], int dimension);
-int pasarArchivoClaseToCelda(char archivito[], stClase celdaClase[], int dimension);
 int altaClase(stClase celdaClase[], stRegistroClase aux, int validos);
 int buscarClaseCelda(stClase celdaClase[], stRegistroClase clase, int validos);
 int crearNuevaClase(stClase celdaClase[], stRegistroClase nuevo, int validos);
