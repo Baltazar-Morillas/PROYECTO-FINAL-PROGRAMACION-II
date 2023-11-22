@@ -7,7 +7,7 @@
 #include <math.h>
 #include <windows.h>
 
-///ESTRUCTURAS
+///ESTRUCTURAS CLASE
 
 typedef struct stClase{
     char nombreClase[30];
@@ -24,6 +24,7 @@ typedef struct stRegistroClase{
     stEstadisticas estadisticas;
 }stRegistroClase;
 
+///PROTOTIPADO FUNCIONES CLASE
 void cargarArchivoClases(char archivito[]);
 stRegistroClase cargarClase(stRegistroClase aux);
 void mostrarArchivoClases(char archivito[]);
@@ -37,5 +38,8 @@ int pasarArchivoClaseToCelda(char archivito[], stClase celdaClase[], int dimensi
 int altaClase(stClase celdaClase[], stRegistroClase aux, int validos);
 int buscarClaseCelda(stClase celdaClase[], stRegistroClase clase, int validos);
 int crearNuevaClase(stClase celdaClase[], stRegistroClase nuevo, int validos);
+void darBajaClase(char archivito[], int idClase);
+void darAltaClase(char archivito[], int idClase);
 char menuClases();
+void mostrarClasesBajasArchivo(char archivito[]);
 #endif // CLASES_H_INCLUDED

@@ -64,19 +64,21 @@
 	<math.h>
 	<windows.h>
 
-1700508842 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\funcionespeleas.c
+1700599507 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\funcionespeleas.c
 	"FuncionesPeleas.h"
 
-1700507226 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\funcionespeleas.h
-	"clases.h"
-	"habilidades.h"
+1700599239 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\funcionespeleas.h
 	<stdio.h>
 	<stdlib.h>
-	<string.h>
-	<conio.h>
 	<time.h>
 	<math.h>
 	<windows.h>
+	<string.h>
+	"habilidades.h"
+	"estadisticas.h"
+	"clases.h"
+	"filas.h"
+	"personajeYenemigos.h"
 
 1700454956 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\libreriaprincipal.h
 	"estadisticas.h"
@@ -97,7 +99,7 @@
 	<math.h>
 	<windows.h>
 
-1700508619 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\clases.h
+1700663336 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\clases.h
 	"estadisticas.h"
 	<stdio.h>
 	<stdlib.h>
@@ -105,7 +107,7 @@
 	<math.h>
 	<windows.h>
 
-1700508618 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\habilidades.h
+1700663332 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\habilidades.h
 	"clases.h"
 	<stdio.h>
 	<stdlib.h>
@@ -115,7 +117,7 @@
 	<math.h>
 	<windows.h>
 
-1700509455 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\main.c
+1700663491 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -125,14 +127,15 @@
 	"estadisticas.h"
 	"clases.h"
 	"FuncionesPeleas.h"
+	"personajeYenemigos.h"
 
-1700509132 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\habilidades.c
+1700610917 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\habilidades.c
 	"habilidades.h"
 
-1700508842 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\clases.c
+1700612012 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\clases.c
 	"clases.h"
 
-1700504638 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\estadisticas.c
+1700611798 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\estadisticas.c
 	"estadisticas.h"
 
 1700497066 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\clases.c
@@ -150,4 +153,25 @@
 1700497067 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\filas.h
 	<stdio.h>
 	<stdlib.h>
+
+1700463873 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\filas.c
+	"filas.h"
+
+1700463877 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\filas.h
+	<stdio.h>
+	<stdlib.h>
+
+1700611774 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\personajeyenemigos.c
+	"personajeYenemigos.h"
+
+1700609511 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\personajeyenemigos.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<math.h>
+	<windows.h>
+	<string.h>
+	"habilidades.h"
+	"estadisticas.h"
+	"clases.h"
 

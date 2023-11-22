@@ -2,17 +2,17 @@
 
 stEstadisticas cargarStats(stEstadisticas a)
 {
-    printf("\nVITALIDAD: ");
+    printf("VITALIDAD: ");
     scanf("%i", &a.vitalidad);
-    printf("\nATAQUE: ");
+    printf("ATAQUE: ");
     scanf("%i", &a.ataque);
-    printf("\nDEFENSA: ");
+    printf("DEFENSA: ");
     scanf("%f", &a.defensa);
-    printf("\nAGILIDAD: ");
+    printf("AGILIDAD: ");
     scanf("%i", &a.agilidad);
-    printf("\nMANA: ");
+    printf("MANA: ");
     scanf("%i", &a.mana);
-    printf("\nCRITICO: ");
+    printf("CRITICO: ");
     scanf("%i", &a.critico);
     return a;
 }

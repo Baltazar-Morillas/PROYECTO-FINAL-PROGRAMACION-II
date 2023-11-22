@@ -52,19 +52,24 @@ void mostrarArchivitoHabilidades(char archivito[])
 {
     FILE * buffer=fopen(archivito, "rb");
     stRegistroHabilidades aux;
+    int res=0;
     if(buffer)
     {
         while(fread(&aux, sizeof(stRegistroHabilidades), 1, buffer)>0)
         {
             if(aux.alta==1){
                 mostrarHabilidad(aux);
+                res=1;
             }
+        }
+        if(res==0){
+            printf("\nNo se encontro ninguna habilidad dada de alta!!!!");
         }
         fclose(buffer);
     }
     else
     {
-        printf("\nERROR NO SE CARGO EL ARCHIVO DE HABILIDADES!!!!\n");
+        printf("\nERROR NO SE PUDO MOSTRAR EL ARCHIVO DE HABILIDADES!!!!\n");
     }
 }
 
@@ -93,11 +98,15 @@ void modificarArchivoHabilidades(char archivito[], int id)
         {
             if(aux.idHabilidad==id)
             {
-                fseek(buffer,sizeof(stRegistroHabilidades)*(-1), 1);
-                aux=modificarHabilidades(aux);
-                fwrite(&aux, sizeof(stRegistroHabilidades), 1, buffer);
                 flag=1;
             }
+        }
+        if(flag==1){
+            aux=modificarHabilidades(aux);
+            fseek(buffer,sizeof(stRegistroHabilidades)*(-1), 1);
+            fwrite(&aux, sizeof(stRegistroHabilidades), 1, buffer);
+        }else{
+            printf("\nNo se encontro la habilidad que desea modificar!!!");
         }
         fclose(buffer);
     }
@@ -183,7 +192,7 @@ char menuModificarHabilidades()
         printf ("\n\t\t\t\t\t[ 6 ] - Efectos");
         printf ("\n\t\t\t\t\t[ 7 ] - Clase");
         printf ("\n\t\t\t\t\t[ 8 ] - Sprite");
-        printf ("\n\t\t\t\t\t\[ 0 ] - Salir\n");
+        printf ("\n\t\t\t\t\t[ 0 ] - Salir\n");
         fflush(stdin);
         opcion = getche();
     }
@@ -197,7 +206,6 @@ void pasarArchivoHabilidadesToCLase(stClase celdaClase[], char archivito[], int 
     if(buffer){
         while(fread(&aux, sizeof(stRegistroHabilidades), 1, buffer)>0){
             altaHabilidad(celdaClase, aux, validos);
-
         }
         fclose(buffer);
     }else{
@@ -208,20 +216,20 @@ void pasarArchivoHabilidadesToCLase(stClase celdaClase[], char archivito[], int 
 void altaHabilidad(stClase celdaClase[], stRegistroHabilidades habilidad, int validos){
     listaHabilidades * lista=crearNodoLista(habilidad);
     int pos=buscarHabilidadClase(celdaClase, habilidad.idClase, validos);
-    celdaClase[pos].habilidades=agregarAlFinal(celdaClase[pos].habilidades, lista);
+    celdaClase[pos].habilidades=agregarAlFinalHabilidad(celdaClase[pos].habilidades, lista);
 }
 
-listaHabilidades * agregarAlFinal(listaHabilidades * lista, listaHabilidades * nuevo){
+listaHabilidades * agregarAlFinalHabilidad(listaHabilidades * lista, listaHabilidades * nuevo){
     if(lista==NULL){
         lista=nuevo;
     }else{
-        listaHabilidades * ultimo=buscarUltimo(lista);
+        listaHabilidades * ultimo=buscarUltimoHabilidad(lista);
         ultimo->siguiente=nuevo;
     }
     return lista;
 }
 
-listaHabilidades * buscarUltimo(listaHabilidades * lista){
+listaHabilidades * buscarUltimoHabilidad(listaHabilidades * lista){
     listaHabilidades * seg=lista;
     if(seg!=NULL){
         while(seg->siguiente!=NULL){
@@ -262,6 +270,81 @@ listaHabilidades * registroToLista(listaHabilidades * nodo, stRegistroHabilidade
     return nodo;
 }
 
-listaHabilidades * inicLista(){
+listaHabilidades * inicListaHabilidad(){
     return NULL;
+}
+
+void darBajaHabilidad(char archivito[], int idHabilidad){
+    FILE * buffer = fopen(archivito, "r+b");
+    stRegistroHabilidades aux;
+    int flag=0;
+    if(buffer){
+        while(flag==0 && fread(&aux, sizeof(stRegistroHabilidades), 1, buffer)>0)
+        {
+            if(aux.idHabilidad==idHabilidad)
+            {
+                flag=1;
+            }
+        }
+        if(flag==1){
+            aux.alta=0;
+            fseek(buffer,sizeof(stRegistroHabilidades)*(-1), 1);
+            fwrite(&aux, sizeof(stRegistroHabilidades), 1, buffer);
+        }else{
+            printf("\nNo se encontro la habilidad que desea dar de baja!!!!");
+        }
+        fclose(buffer);
+    }else{
+        printf("\nERROR, NO SE PUDO DAR DE BAJA LA HABILIDAD PORQUE NO SE ABRIO EL ARCHIVO!!!!\n");
+    }
+}
+
+void darAltaHabilidad(char archivito[], int idHabilidad){
+    FILE * buffer = fopen(archivito, "r+b");
+    stRegistroHabilidades aux;
+    int flag=0;
+    if(buffer){
+        while(flag==0 && fread(&aux, sizeof(stRegistroHabilidades), 1, buffer)>0)
+        {
+            if(aux.idHabilidad==idHabilidad)
+            {
+                flag=1;
+            }
+        }
+        if(flag==1){
+            aux.alta=1;
+            fseek(buffer,sizeof(stRegistroHabilidades)*(-1), 1);
+            fwrite(&aux, sizeof(stRegistroHabilidades), 1, buffer);
+        }else{
+            printf("\nNo se encontro la habilidad que quiere dar de alta!!!!");
+        }
+        fclose(buffer);
+    }else{
+        printf("\nERROR, NO SE PUDO DAR DE BAJA LA HABILIDAD PORQUE NO SE ABRIO EL ARCHIVO!!!!\n");
+    }
+}
+
+void mostrarHabilidadesBajasArchivo(char archivito[])
+{
+    FILE * buffer=fopen(archivito, "rb");
+    stRegistroHabilidades aux;
+    int res=0;
+    if(buffer)
+    {
+        while(fread(&aux, sizeof(stRegistroHabilidades), 1, buffer)>0)
+        {
+            if(aux.alta==0){
+                mostrarHabilidad(aux);
+                res=1;
+            }
+        }
+        if(res==0){
+            printf("\nNo se encontro ninguna habilidad dada de baja!!!");
+        }
+        fclose(buffer);
+    }
+    else
+    {
+        printf("\nERROR NO SE PUDO MOSTRAR EL ARCHIVO DE HABILIDADES!!!!\n");
+    }
 }

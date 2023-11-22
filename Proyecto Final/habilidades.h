@@ -9,7 +9,7 @@
 #include <math.h>
 #include <windows.h>
 
-///ESTRUCTURAS
+///ESTRUCTURAS HABILIDADES
 typedef struct stRegistroHabilidades{
     char nombreHabilidad[30];
     int damage;
@@ -35,6 +35,7 @@ typedef struct listaHabilidades{
     struct listaHabilidades * siguiente;
 }listaHabilidades;
 
+///PROTOTIPADO FUNCIONES HABILIDADES
 void cargarArchivoHabilidades(char archivito[]);
 stRegistroHabilidades cargarHabilidad(stRegistroHabilidades habilidad);
 void mostrarArchivitoHabilidades(char archivito[]);
@@ -45,10 +46,13 @@ stRegistroHabilidades modificarCampoHabilidad(stRegistroHabilidades aux, char sw
 char menuModificarHabilidades();
 void pasarArchivoHabilidadesToCLase(stClase celdaClase[], char archivito[], int validos);
 void altaHabilidad(stClase celdaClase[], stRegistroHabilidades habilidad, int validos);
-listaHabilidades * agregarAlFinal(listaHabilidades * lista, listaHabilidades * nuevo);
-listaHabilidades * buscarUltimo(listaHabilidades * lista);
+listaHabilidades * agregarAlFinalHabilidad(listaHabilidades * lista, listaHabilidades * nuevo);
+listaHabilidades * buscarUltimoHabilidad(listaHabilidades * lista);
 int buscarHabilidadClase(stClase celdaClase[], int id, int validos);
 listaHabilidades * crearNodoLista(stRegistroHabilidades dato);
 listaHabilidades * registroToLista(listaHabilidades * nodo, stRegistroHabilidades dato);
-listaHabilidades * inicLista();
+listaHabilidades * inicListaHabilidad();
+void darBajaHabilidad(char archivito[], int idHabilidad);
+void darAltaHabilidad(char archivito[], int idHabilidad);
+void mostrarHabilidadesBajasArchivo(char archivito[]);
 #endif // HABILIDADES_H_INCLUDED
