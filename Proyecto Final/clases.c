@@ -1,6 +1,7 @@
 #include "clases.h"
 
-void cargarArchivoClases(char archivito[]){
+void cargarArchivoClases(char archivito[])
+{
     FILE * buffer = fopen(archivito, "ab");
     stRegistroClase aux;
     char control = 's';
@@ -35,16 +36,24 @@ stRegistroClase cargarClase(stRegistroClase aux)
     return aux;
 }
 
-void mostrarArchivoClases(char archivito[]){
+void mostrarArchivoClases(char archivito[])
+{
     FILE * buffer=fopen(archivito, "rb");
     stRegistroClase aux;
+    int res=0;
     if(buffer)
     {
         while(fread(&aux, sizeof(stRegistroClase), 1, buffer)>0)
         {
-            if(aux.alta==1){
+            if(aux.alta==1)
+            {
                 mostrarClase(aux);
+                res=1;
             }
+        }
+        if(res==0)
+        {
+            printf("\nNo se encontro ninguna clase dada de alta!!!");
         }
         fclose(buffer);
     }
@@ -59,6 +68,7 @@ void mostrarClase(stRegistroClase aux)
     printf("\n--------------------------------");
     printf("\nCLASE: %s", aux.nombreClase);
     printf("\nID CLASE: %d", aux.idClase);
+    printf("\nALTA: %d", aux.alta);
     mostrarEstadisticas(aux.estadisticas);
 }
 
@@ -73,11 +83,18 @@ void modificarArchivoClases(char archivito[], int id)
         {
             if(aux.idClase==id)
             {
-                fseek(buffer,sizeof(stRegistroClase)*(-1), 1);
-                aux=modificarClases(aux);
-                fwrite(&aux, sizeof(stRegistroClase), 1, buffer);
                 flag=1;
             }
+        }
+        if(flag==1)
+        {
+            aux=modificarClases(aux);
+            fseek(buffer,sizeof(stRegistroClase)*(-1), 1);
+            fwrite(&aux, sizeof(stRegistroClase), 1, buffer);
+        }
+        else
+        {
+            printf("\nNo se encontro la habilidad que se desea modificar!!!");
         }
         fclose(buffer);
     }
@@ -125,7 +142,7 @@ stRegistroClase modificarCampoClase(stRegistroClase aux, char sw)
         break;
     case '4':
         printf("\nIngrese la defensa de la habilidad: ");
-        scanf("%d", &aux.estadisticas.defensa);
+        scanf("%f", &aux.estadisticas.defensa);
         break;
     case '5':
         printf("\nIngrese el ataque de la clase: ");
@@ -180,7 +197,7 @@ char menuClases()
         printf ("\n\t\t\t\t\t[ 1 ] - GUERRERO");
         printf ("\n\t\t\t\t\t[ 2 ] - MAGO");
         printf ("\n\t\t\t\t\t[ 3 ] - TANQUE");
-        printf ("\n\t\t\t\t\t[ 4 ] - ARQUERO");
+        printf ("\n\t\t\t\t\t[ 4 ] - ARQUERO\n");
         fflush(stdin);
         opcion = getche();
     }
@@ -188,25 +205,32 @@ char menuClases()
     return opcion;
 }
 
-int pasarArchivoClaseToCelda(char archivito[], stClase celdaClase[], int dimension){
+int pasarArchivoClaseToCelda(char archivito[], stClase celdaClase[], int dimension)
+{
     FILE * buffer = fopen(archivito, "rb");
     int validos=0;
     stRegistroClase aux;
-    if(buffer){
-        while(fread(&aux, sizeof(stRegistroClase), 1, buffer)>0){
+    if(buffer)
+    {
+        while(fread(&aux, sizeof(stRegistroClase), 1, buffer)>0)
+        {
             validos=altaClase(celdaClase, aux, validos);
         }
         fclose(buffer);
-    }else{
+    }
+    else
+    {
         printf("\nERROR, AL ABRIR EL ARCHIVO DE CLASES!!!!\n");
     }
     return validos;
 }
 
-int altaClase(stClase celdaClase[], stRegistroClase aux, int validos){
+int altaClase(stClase celdaClase[], stRegistroClase aux, int validos)
+{
     stEstadisticas stats = crearEstructuraEstadisticas(aux.estadisticas);
     int pos=buscarClaseCelda(celdaClase, aux, validos);
-    if(pos==-1){
+    if(pos==-1)
+    {
         validos=crearNuevaClase(celdaClase, aux, validos);
         pos=validos-1;
     }
@@ -214,10 +238,13 @@ int altaClase(stClase celdaClase[], stRegistroClase aux, int validos){
     return validos;
 }
 
-int buscarClaseCelda(stClase celdaClase[], stRegistroClase clase, int validos){
+int buscarClaseCelda(stClase celdaClase[], stRegistroClase clase, int validos)
+{
     int pos=-1, i=0;
-    while(i<validos && pos==-1){
-        if((strcmpi(clase.nombreClase, celdaClase[i].nombreClase)==0) && (clase.idClase==celdaClase[validos].idClase)){
+    while(i<validos && pos==-1)
+    {
+        if((strcmpi(clase.nombreClase, celdaClase[i].nombreClase)==0) && (clase.idClase==celdaClase[validos].idClase))
+        {
             pos=i;
         }
         i++;
@@ -225,11 +252,97 @@ int buscarClaseCelda(stClase celdaClase[], stRegistroClase clase, int validos){
     return pos;
 }
 
-int crearNuevaClase(stClase celdaClase[], stRegistroClase nuevo, int validos){
+int crearNuevaClase(stClase celdaClase[], stRegistroClase nuevo, int validos)
+{
     celdaClase[validos].alta=nuevo.alta;
     celdaClase[validos].idClase=nuevo.idClase;
-    celdaClase[validos].habilidades=inicLista();
+    celdaClase[validos].habilidades = inicListaHabilidad();
     strcpy(celdaClase[validos].nombreClase, nuevo.nombreClase);
     validos++;
     return validos;
+}
+
+void darBajaClase(char archivito[], int idClase)
+{
+    FILE * buffer = fopen(archivito, "r+b");
+    stRegistroClase aux;
+    int flag=0;
+    if(buffer)
+    {
+        while((flag==0) && (fread(&aux, sizeof(stRegistroClase), 1, buffer)>0))
+        {
+            if(aux.idClase==idClase)
+            {
+                flag=1;
+            }
+        }
+        if(flag==1){
+            aux.alta=0;
+            fseek(buffer,sizeof(stRegistroClase)*(-1), 1);
+            fwrite(&aux, sizeof(stRegistroClase), 1, buffer);
+        }else{
+            printf("\nNo se encontro la clase que quiere dar de baja!!!!");
+        }
+        fclose(buffer);
+    }
+    else
+    {
+        printf("\nERROR, NO SE PUDO DAR DE BAJA LA CLASE PORQUE NO SE ABRIO EL ARCHIVO!!!!\n");
+    }
+}
+
+void darAltaClase(char archivito[], int idClase)
+{
+    FILE * buffer = fopen(archivito, "r+b");
+    stRegistroClase aux;
+    int flag=0;
+    if(buffer)
+    {
+        while((flag==0) && (fread(&aux, sizeof(stRegistroClase), 1, buffer)>0))
+        {
+            if(aux.idClase==idClase)
+            {
+                flag=1;
+            }
+        }
+        if(flag==1){
+            aux.alta=1;
+            fseek(buffer,sizeof(stRegistroClase)*(-1), 1);
+            fwrite(&aux, sizeof(stRegistroClase), 1, buffer);
+        }else{
+            printf("\nNo se encontro la clase que quiere dar de alta!!");
+        }
+        fclose(buffer);
+    }
+    else
+    {
+        printf("\nERROR, NO SE PUDO DAR DE BAJA LA CLASE PORQUE NO SE ABRIO EL ARCHIVO!!!!\n");
+    }
+}
+
+void mostrarClasesBajasArchivo(char archivito[])
+{
+    FILE * buffer=fopen(archivito, "rb");
+    stRegistroClase aux;
+    int res=0;
+    if(buffer)
+    {
+        while(fread(&aux, sizeof(stRegistroClase), 1, buffer)>0)
+        {
+            if(aux.alta==0)
+            {
+                mostrarClase(aux);
+                res=1;
+            }
+        }
+        if(res==0)
+        {
+            printf("\nNo se encontro ninguna clase dada de baja!!!");
+        }
+        fclose(buffer);
+    }
+    else
+    {
+        printf("\nERROR AL MOSTRAR EL ARCHIVO DE CLASES!!!!\n");
+    }
 }
