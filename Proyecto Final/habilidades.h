@@ -36,11 +36,16 @@ typedef struct listaHabilidades{
 }listaHabilidades;
 
 
+typedef struct nodoHabilidades{
+    stRegistroHabilidades registro;
+    struct nodoHabilidades * siguiente;
+}nodoHabilidades;
+
 
 ///PROTOTIPADO FUNCIONES HABILIDADES
 void cargarArchivoHabilidades(char archivito[]);
 stRegistroHabilidades cargarHabilidad(stRegistroHabilidades habilidad);
-void mostrarArchivitoHabilidades(char archivito[]);
+void mostrarArchivoHabilidadesAltaOrdenado(char archivito[]);
 void mostrarHabilidad(stRegistroHabilidades aux);
 void modificarArchivoHabilidades(char archivito[], int id);
 stRegistroHabilidades modificarHabilidades(stRegistroHabilidades aux);
@@ -56,5 +61,14 @@ listaHabilidades * registroToLista(listaHabilidades * nodo, stRegistroHabilidade
 listaHabilidades * inicListaHabilidad();
 void darBajaHabilidad(char archivito[], int idHabilidad);
 void darAltaHabilidad(char archivito[], int idHabilidad);
-void mostrarHabilidadesBajasArchivo(char archivito[]);
+void mostrarArchivoHabilidadesBajaOrdenado(char archivito[]);
+char menuMostrarHabilidadOrdenada();
+void mostrarListaOrdenadaHabilidades(nodoHabilidades * lista);
+void mostrarListaHabilidadesRecursivaAscendente(nodoHabilidades * lista);
+void mostrarListaHabilidadesRecursivaDescendente(nodoHabilidades * lista);
+nodoHabilidades * inicListaHabilidadesRegistro();
+nodoHabilidades * crearNodoListaHabilidades(stRegistroHabilidades dato);
+nodoHabilidades * agregarNodoOrdenadoHabilidades(nodoHabilidades * lista, nodoHabilidades * nuevo);
+nodoHabilidades * agregarAlPrincipioListaHabilidades(nodoHabilidades * lista, nodoHabilidades * nuevo);
+
 #endif // HABILIDADES_H_INCLUDED

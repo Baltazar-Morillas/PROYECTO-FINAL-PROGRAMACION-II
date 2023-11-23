@@ -35,21 +35,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="FuncionesPeleas.h" />
-		<Unit filename="LibreriaPrincipal.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="LibreriaPrincipal.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="Menu.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Menu.h" />
-		<Unit filename="Usuario.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Usuario.h" />
 		<Unit filename="clases.c">
 			<Option compilerVar="CC" />
 		</Unit>

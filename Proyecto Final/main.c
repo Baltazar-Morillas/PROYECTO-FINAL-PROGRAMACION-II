@@ -23,7 +23,7 @@ int main()
 
     /*
     ///Cosas de chuli
-    system("color 0B");
+    system("color 0A");
     int id=0, victoria, pocionRoja = 3, pocionAzul = 3, validos;
     stClase celdaClases[10];
     stPersonaje player;
@@ -58,6 +58,10 @@ int main()
     mostrarArchivoClases(archivitoClases);
     system("pause");
     */
+
+
+
+    //mostrarArchivoHabilidadesAltaOrdenado(archivitoHabilidades);
 
     return 0;
 }
