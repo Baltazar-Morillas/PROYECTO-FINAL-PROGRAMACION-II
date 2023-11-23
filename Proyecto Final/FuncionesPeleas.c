@@ -10,17 +10,14 @@ int funcionDePelea(stPersonaje player, stEnemigo enemy, int pocionRoja, int poci
     float vidaActual = player.clase.estadisticas.vitalidad, vidaActualEnemigo = enemy.estadisticasE.vitalidad;
 
     char matrizEscena[20][50];
-    char escena[1000] = "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
-    char escena2[600] = "001000100011100010010010000010010010010000010100010001001001001001001001001101000000100001000100100100100100100100101100000010000100010010010001010100010010010000001000001110000110000010100001001001000000000000000000000000000000000000000000000000000000000111001000100000000000000000000000000000100010010100000000000000000000000000000001110001110000000000000000000000000000000111000010000000000000000000000000000000101011110000000000000000000000000000000001100000000000000000000000000000000000000010000000000000000000000000000000000000010100000000000000000000000000000000000011011000000000000000000000";
-    char escena3[600] = "010100110010010010000110001100111100000001010100101001001000100101000010000000000010010010100100100010010011001111000000001001001010010010001001000010100000000000100011000110001110011000110011110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111110000000000000000000000000000000100000000100000000000000000000000000000010011111010000010000000000000000000000001000000001000011100000000000000000000000100000000100010100000000000000000000000010000000010001000000000000000000000011111111111111111111100000000000000000010000000000000000000001110000000000000";
 
     while(bombaHumo == 0 && vidaActual > 0 && vidaActualEnemigo > 0)
     {
-        cargarMatrizEscena(matrizEscena, escena);
+        cargarMatrizEscena(matrizEscena, enemy.sprite);
         dibujarEscena(player, enemy, &vidaActual, &vidaActualEnemigo, &manaActual, accionesCombate, matrizEscena, turno);
         if(player.clase.estadisticas.agilidad >= enemy.estadisticasE.agilidad)
         {
-            menuCombate(&vidaActual,&vidaActualEnemigo, &manaActual, &pocionRoja, &pocionAzul, &bombaHumo, player, enemy, accionesCombate);
+            menuCombate(&vidaActual,&vidaActualEnemigo, &manaActual, &pocionRoja, &pocionAzul, &bombaHumo, &player, &enemy, accionesCombate);
             if(vidaActualEnemigo > 0)
             {
                 accionesEnemigo(&vidaActual, &vidaActualEnemigo, player, enemy, accionesCombate);
@@ -34,7 +31,7 @@ int funcionDePelea(stPersonaje player, stEnemigo enemy, int pocionRoja, int poci
         {
             accionesEnemigo(&vidaActual, &vidaActualEnemigo, player, enemy, accionesCombate);
 
-            menuCombate(&vidaActual,&vidaActualEnemigo, &manaActual, &pocionRoja, &pocionAzul, &bombaHumo, player, enemy, accionesCombate);
+            menuCombate(&vidaActual,&vidaActualEnemigo, &manaActual, &pocionRoja, &pocionAzul, &bombaHumo, &player, &enemy, accionesCombate);
             if(vidaActual <= 0)
             {
                 agregar(accionesCombate, 9);
@@ -59,18 +56,6 @@ int funcionDePelea(stPersonaje player, stEnemigo enemy, int pocionRoja, int poci
         printf("Te escapaste anashe\n");
         victoria = 1;
     }
-    else if(vidaActual <= 0)
-    {
-        victoria = 0;
-        cargarMatrizEscena(matrizEscena, escena3);
-        mostrarEscena(matrizEscena);
-    }
-    else
-    {
-        victoria = 1;
-        cargarMatrizEscena(matrizEscena, escena2);
-        mostrarEscena(matrizEscena);
-    }
 
     return victoria;
 }
@@ -94,18 +79,18 @@ void dibujarEscena(stPersonaje player, stEnemigo enemy, float * vidaActual, floa
 void cargarMatrizEscena(char matrizEscena[][50], char escena[])
 {
     int i, j, t=0;
-    for(i=0; i<15; i++)
+    for(i=0; i<20; i++)
     {
         for(j=0; j<50; j++)
         {
 
             if(escena[t] == '1')
             {
-                matrizEscena[i][j] = '0';
+                matrizEscena[i][j] = ' ';
             }
             else
             {
-                matrizEscena[i][j] = '-';
+                matrizEscena[i][j] = ']';
             }
             t++;
         }
@@ -117,7 +102,7 @@ void mostrarEscena(char escena[][50])
     int i, j;
 
 
-    for(i=0; i<15; i++)
+    for(i=0; i<20; i++)
     {
         printf("\t\t\t\t");
         for(j=0; j<50; j++)
@@ -210,9 +195,9 @@ void barraDeMana(int manaMaximo, int * manaActual)
 
 }
 
-void menuCombate(float * vidaActual, float * vidaEnemigo, int * manaActual, int * pocionRoja, int * pocionAzul, int * bombaHumo, stPersonaje player, stEnemigo enemy, Fila * accionesCombate)
+void menuCombate(float * vidaActual, float * vidaEnemigo, int * manaActual, int * pocionRoja, int * pocionAzul, int * bombaHumo, stPersonaje * player, stEnemigo * enemy, Fila * accionesCombate)
 {
-    int eleccion, flag = 0, criticHit, critic = 21-player.clase.estadisticas.critico,succesfulDodge, dodge = 21 - enemy.estadisticasE.agilidad;
+    int eleccion, flag = 0, resultado, criticHit, critic = 21-player->clase.estadisticas.critico,succesfulDodge, dodge = 21 - enemy->estadisticasE.agilidad;
     srand(time(NULL));
 
     printf("\n\n\t\t\t\t1.Pelear   -    2.Habilidades    -     3.items\n");
@@ -241,12 +226,13 @@ void menuCombate(float * vidaActual, float * vidaEnemigo, int * manaActual, int 
 
                     if(criticHit == 0)
                     {
-                        *vidaEnemigo = *vidaEnemigo - ((player.clase.estadisticas.ataque * enemy.estadisticasE.defensa)*2);
+                        *vidaEnemigo = *vidaEnemigo - ((player->clase.estadisticas.ataque * enemy->estadisticasE.defensa)*2);
                     }
                     else
                     {
-                        *vidaEnemigo = *vidaEnemigo - (player.clase.estadisticas.ataque * enemy.estadisticasE.defensa);
+                        *vidaEnemigo = *vidaEnemigo - (player->clase.estadisticas.ataque * enemy->estadisticasE.defensa);
                     }
+                    *manaActual = *manaActual + 15;
                     agregar(accionesCombate, 0);
                     if(criticHit == 0)
                     {
@@ -264,9 +250,12 @@ void menuCombate(float * vidaActual, float * vidaEnemigo, int * manaActual, int 
         case 2:
             if(*vidaActual > 0)
             {
-                menuHabilidades(vidaActual, vidaEnemigo, manaActual, &player, &enemy, accionesCombate);
-                flag = 1;
-                agregar(accionesCombate, 1);
+                resultado = menuHabilidades(vidaActual, vidaEnemigo, manaActual, player, enemy, accionesCombate);
+                if(resultado == 0)
+                {
+                    flag = 1;
+                }
+
             }
             else
             {
@@ -305,7 +294,7 @@ void cajaDeTexto(Fila * accionesCombate, int turno)
         switch(extraer(accionesCombate))
         {
         case 0:
-            printf("\t\t\t\t\tRealizaste un ataque!\n");
+            printf("\t\t\tRealizaste un ataque y recuperaste un poco de mana!\n");
             break;
         case 1:
             printf("\t\t\t\t\tUtilizaste una habilidad!\n");
@@ -317,7 +306,7 @@ void cajaDeTexto(Fila * accionesCombate, int turno)
             printf("\t\t\t\t\tEl enemigo te ataco!\n");
             break;
         case 4:
-            printf("\t\t\t\t\tEl enemigo uso una habilidad!\n");
+            printf("\t\t\t\t\tEl enemigo utilizo un ataque potente\n");
             break;
         case 5:
             printf("\t\t\t\t\tFue un ataque critico!\n");
@@ -368,13 +357,16 @@ void cajaDeTexto(Fila * accionesCombate, int turno)
             printf("\t\t\t\t\tTu agilidad incremento!\n");
             break;
         case 21:
-            printf("\t\t\t\t\tLe causaste un efecto de estado al enemigo!\n");
+            printf("\t\t\t\tSacrificaste parte de tu vida para realizar un ataque!\n");
             break;
         case 22:
             printf("\t\t\t\t\tSufriste el retroceso del ataque!\n");
             break;
         case 23:
-            printf("\t\t\t\t\tTe debilitaste con tu propio reteoceso!\n");
+            printf("\t\t\t\t\tTe heriste por tu propio reteoceso!\n");
+            break;
+        case 24:
+            printf("\t\t\t\t\tEl enemigo se curo!\n");
             break;
 
         }
@@ -389,10 +381,20 @@ void accionesEnemigo(float * vidaActual, float * vidaEnemigo, stPersonaje player
 {
     int accion, criticHit, critic = 21 - enemy.estadisticasE.critico, succesfulDodge, dodge = 21 - player.clase.estadisticas.agilidad;
     srand(time(NULL));
-    accion = rand() % 2;
-    switch(accion)
+    accion = rand() % 21;
+    if(accion == 0)
     {
-    case 0:
+        printf("El monstruo realizo una habilidad habilidad\n");
+        agregar(accionesCombate, 4);
+    }
+    else if(accion == 1)
+    {
+
+        *vidaEnemigo = *vidaEnemigo + (*vidaActual * 0.1);
+        agregar(accionesCombate, 24);
+    }
+    else
+    {
         succesfulDodge = rand() % dodge;
 
         if(succesfulDodge != 0)
@@ -412,12 +414,8 @@ void accionesEnemigo(float * vidaActual, float * vidaEnemigo, stPersonaje player
         {
             agregar(accionesCombate, 7);
         }
-        break;
-    case 1:
-        printf("El monstruo realizo una habilidad habilidad\n");
-        agregar(accionesCombate, 4);
-        break;
     }
+
 
 }
 
@@ -498,18 +496,41 @@ void items(float * vidaActual, int * manaActual, int * pocionRoja, int * pocionA
     }
 }
 
-void menuHabilidades(float * vidaActual, float * vidaActualEnemigo, int * manaActual, stPersonaje * player, stEnemigo * enemy, Fila * accionesCombate)
+int menuHabilidades(float * vidaActual, float * vidaActualEnemigo, int * manaActual, stPersonaje * player, stEnemigo * enemy, Fila * accionesCombate)
 {
-    int habElegida;
+    int habElegida, flag, flag2 = 0;
 
     mostrarHabilidadesJugador(player->clase.habilidades);
-    printf("Habilidad a utilizar: ");
     do
     {
-    scanf("%i", &habElegida);
-    }while(habElegida < 0 || habElegida > 4);
-    listaHabilidades * elegida = habilidadElegida(player->clase.habilidades, habElegida);
-    efectoHabilidad(vidaActual, vidaActualEnemigo, manaActual, player, enemy, elegida, accionesCombate);
+        printf("Habilidad a utilizar: ");
+        do
+        {
+            scanf("%i", &habElegida);
+        }while(habElegida < 0 || habElegida > 4);
+
+        listaHabilidades * elegida = habilidadElegida(player->clase.habilidades, habElegida);
+        flag = efectoHabilidad(vidaActual, vidaActualEnemigo, manaActual, player, enemy, elegida, accionesCombate);
+        printf("%i", flag);
+        if(flag == 0)
+        {
+            do
+            {
+            printf("Presione 1 para salir y 0 para usar otra habilidad:");
+            scanf("%i", &flag);
+            }while(flag < 0 && flag > 1);
+
+            if(flag == 1)
+            {
+                flag2 = 1;
+                printf("\n\t\t\t\t1.Pelear   -    2.Habilidades    -     3.items\n");
+            }
+        }
+    }
+    while(flag == 0);
+
+    return flag2;
+
 
 }
 
@@ -529,219 +550,237 @@ void mostrarHabilidadesJugador(listaHabilidades * lista)
     int i = 0;
     while(lista != NULL)
     {
-        printf("%i: %s\n", i, lista->nombreHabilidad);
+        printf("%i: %s x%i\n", i, lista->nombreHabilidad, lista->usos);
         i++;
         lista = lista->siguiente;
     }
 }
 
-void efectoHabilidad(float * vidaActual, float * vidaActualEnemigo, int * manaActual, stPersonaje * player, stEnemigo * enemy, listaHabilidades * habilidadElegida, Fila * accionesCombate)
+int efectoHabilidad(float * vidaActual, float * vidaActualEnemigo, int * manaActual, stPersonaje * player, stEnemigo * enemy, listaHabilidades * habilidadElegida, Fila * accionesCombate)
 {
+    int flag = 1;
     char spriteHabilidad[20][50];
     switch(habilidadElegida->efecto)
     {
-    case 0:
-        if(*manaActual >= habilidadElegida->mana)
+    case 0: /// danio puro
+        if(habilidadElegida->usos > 0 && *manaActual >= habilidadElegida->mana)
         {
-        *vidaActualEnemigo = *vidaActualEnemigo - habilidadElegida->damage;
-        *manaActual = * manaActual - habilidadElegida->mana;
-        habilidadElegida->usos = habilidadElegida->usos - 1;
-        agregar(accionesCombate, 2);
-        system("cls");
-        cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);
-        printf("\t\t\t\tUtilizaste %s!\n", habilidadElegida->nombreHabilidad);
-        mostrarEscena(spriteHabilidad);
-        printf("\n");
-        system("pause");
+            *vidaActualEnemigo = *vidaActualEnemigo - habilidadElegida->damage;
+            *manaActual = * manaActual - habilidadElegida->mana;
+            habilidadElegida->usos = habilidadElegida->usos - 1;
+            agregar(accionesCombate, 2);
+            system("cls");
+            cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);
+            printf("\t\t\t\tUtilizaste %s!\n", habilidadElegida->nombreHabilidad);
+            mostrarEscena(spriteHabilidad);
+            printf("\n");
+            system("pause");
         }
         else
         {
-            printf("No tienes mana suficiente para realizar esta habilidad\n");
+            printf("No tienes mana suficiente para realizar esta habilidad o se quedo sin usos\n");
+            flag = 0;
+            system("pause");
         }
         break;
-    case 1:
+    case 1: ///ataque y baja defensa
         if(habilidadElegida->usos > 0 && *manaActual >= habilidadElegida->mana)
         {
-        *vidaActualEnemigo = *vidaActualEnemigo - habilidadElegida->damage;
-        *manaActual = * manaActual - habilidadElegida->mana;
-        enemy->estadisticasE.defensa = enemy->estadisticasE.defensa + 0.2;
-        agregar(accionesCombate, 12);
-        if(enemy->estadisticasE.defensa > 2)
-        {
-            enemy->estadisticasE.defensa = 2;
-            agregar(accionesCombate, 13);
-        }
-        habilidadElegida->usos = habilidadElegida->usos -1;
+            *vidaActualEnemigo = *vidaActualEnemigo - habilidadElegida->damage;
+            *manaActual = * manaActual - habilidadElegida->mana;
+            enemy->estadisticasE.defensa = enemy->estadisticasE.defensa + 0.2;
+            agregar(accionesCombate, 12);
+            if(enemy->estadisticasE.defensa > 2)
+            {
+                enemy->estadisticasE.defensa = 2;
+                agregar(accionesCombate, 13);
+            }
+            habilidadElegida->usos = habilidadElegida->usos -1;
 
-        system("cls");
-        cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);
-        printf("\t\t\t\tUtilizaste %s!\n", habilidadElegida->nombreHabilidad);
-        mostrarEscena(spriteHabilidad);
-        printf("\n");
-        system("pause");
+            system("cls");
+            cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);
+            printf("\t\t\t\tUtilizaste %s!\n", habilidadElegida->nombreHabilidad);
+            mostrarEscena(spriteHabilidad);
+            printf("\n");
+            system("pause");
         }
         else
         {
-            printf("No tienes mana suficiente para realizar esta habilidad\n");
+            printf("No tienes mana suficiente para realizar esta habilidad o se quedo sin usos\n");
+            flag = 0;
         }
         break;
-    case 2:
+    case 2:///ataque y baja ataque
         if(habilidadElegida->usos > 0 && *manaActual >= habilidadElegida->mana)
         {
-        *vidaActualEnemigo = *vidaActualEnemigo - habilidadElegida->damage;
-        *manaActual = * manaActual - habilidadElegida->mana;
-        enemy->estadisticasE.ataque = enemy->estadisticasE.ataque - 3;
-        agregar(accionesCombate, 14);
-        if(enemy->estadisticasE.ataque < 1);
-        {
-            enemy->estadisticasE.ataque = 1;
-            agregar(accionesCombate, 15);
-        }
-        habilidadElegida->usos =habilidadElegida->usos -1;
-        system("cls");
-        cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);
-        printf("\t\t\t\tUtilizaste %s!\n", habilidadElegida->nombreHabilidad);
-        mostrarEscena(spriteHabilidad);
-        printf("\n");
-        system("pause");
+            *vidaActualEnemigo = *vidaActualEnemigo - habilidadElegida->damage;
+            *manaActual = * manaActual - habilidadElegida->mana;
+            enemy->estadisticasE.ataque = enemy->estadisticasE.ataque - 3;
+            agregar(accionesCombate, 14);
+            if(enemy->estadisticasE.ataque < 1);
+            {
+                enemy->estadisticasE.ataque = 1;
+                agregar(accionesCombate, 15);
+            }
+            habilidadElegida->usos =habilidadElegida->usos -1;
+            system("cls");
+            cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);
+            printf("\t\t\t\tUtilizaste %s!\n", habilidadElegida->nombreHabilidad);
+            mostrarEscena(spriteHabilidad);
+            printf("\n");
+            system("pause");
         }
         else
         {
-            printf("No tienes mana suficiente para realizar esta habilidad\n");
+            printf("No tienes mana suficiente para realizar esta habilidad o se quedo sin usos\n");
+            flag = 0;
         }
         break;
-    case 3:
+    case 3:/// buff ataque
         if(habilidadElegida->usos > 0 && *manaActual >= habilidadElegida->mana)
         {
-        player->clase.estadisticas.ataque = player->clase.estadisticas.ataque + 5;
-        habilidadElegida->usos =habilidadElegida->usos -1;
-        agregar(accionesCombate, 16);
-        system("cls");
-        cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);
-        printf("\t\t\t\tUtilizaste %s!\n", habilidadElegida->nombreHabilidad);
-        mostrarEscena(spriteHabilidad);
-        printf("\n");
-        system("pause");
+            player->clase.estadisticas.ataque = player->clase.estadisticas.ataque + 5;
+            *manaActual = * manaActual - habilidadElegida->mana;
+            habilidadElegida->usos =habilidadElegida->usos -1;
+            agregar(accionesCombate, 16);
+            system("cls");
+            cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);
+            printf("\t\t\t\tUtilizaste %s!\n", habilidadElegida->nombreHabilidad);
+            printf("danio pa");
+            mostrarEscena(spriteHabilidad);
+            printf("\n");
+            system("pause");
         }
         else
         {
-            printf("No tienes mana suficiente para realizar esta habilidad\n");
+            printf("No tienes mana suficiente para realizar esta habilidad o se quedo sin usos\n");
+            flag = 0;
         }
         break;
-    case 4:
+    case 4: /// buff defensa
         if(habilidadElegida->usos > 0 && *manaActual >= habilidadElegida->mana)
         {
-        player->clase.estadisticas.defensa = player->clase.estadisticas.ataque - 0.2;
-        habilidadElegida->usos =habilidadElegida->usos -1;
-        agregar(accionesCombate, 17);
-        system("cls");
-        cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);
-        printf("\t\t\t\tUtilizaste %s!\n", habilidadElegida->nombreHabilidad);
-        mostrarEscena(spriteHabilidad);
-        printf("\n");
-        system("pause");
+            player->clase.estadisticas.defensa = player->clase.estadisticas.defensa - 0.2;
+            *manaActual = * manaActual - habilidadElegida->mana;
+            habilidadElegida->usos =habilidadElegida->usos -1;
+            agregar(accionesCombate, 17);
+            system("cls");
+            cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);
+            printf("\t\t\t\tUtilizaste %s!\n", habilidadElegida->nombreHabilidad);
+            mostrarEscena(spriteHabilidad);
+            printf("\n");
+            system("pause");
         }
         else
         {
-            printf("No tienes mana suficiente para realizar esta habilidad\n");
+            printf("No tienes mana suficiente para realizar esta habilidad o se quedo sin usos\n");
+            flag = 0;
         }
         break;
-    case 5:
+    case 5: /// curacion
         if(habilidadElegida->usos > 0 && *manaActual >= habilidadElegida->mana)
         {
-        *vidaActual = *vidaActual + 100;
-        habilidadElegida->usos =habilidadElegida->usos -1;
-        agregar(accionesCombate, 18);
-        system("cls");
-        cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);
-        printf("\t\t\t\tUtilizaste %s!\n", habilidadElegida->nombreHabilidad);
-        mostrarEscena(spriteHabilidad);
-        printf("\n");
-        system("pause");
+            *vidaActual = *vidaActual + 100;
+            *manaActual = * manaActual - habilidadElegida->mana;
+            habilidadElegida->usos =habilidadElegida->usos -1;
+            agregar(accionesCombate, 18);
+            system("cls");
+            cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);
+            printf("\t\t\t\tUtilizaste %s!\n", habilidadElegida->nombreHabilidad);
+            mostrarEscena(spriteHabilidad);
+            printf("\n");
+            system("pause");
         }
         else
         {
-            printf("No tienes mana suficiente para realizar esta habilidad\n");
+            printf("No tienes mana suficiente para realizar esta habilidad o se quedo sin usos\n");
+            flag = 0;
         }
         break;
-    case 6:
+    case 6: /// recuperar mana
         if(habilidadElegida->usos > 0 && *manaActual >= habilidadElegida->mana)
         {
-        *manaActual = * manaActual + 100;
-        habilidadElegida->usos =habilidadElegida->usos -1;
-        agregar(accionesCombate, 19);
-        system("cls");
-        cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);
-        printf("\t\t\t\tUtilizaste %s!\n", habilidadElegida->nombreHabilidad);
-        mostrarEscena(spriteHabilidad);
-        printf("\n");
-        system("pause");
+            *manaActual = * manaActual + 100;
+            habilidadElegida->usos =habilidadElegida->usos -1;
+            agregar(accionesCombate, 19);
+            system("cls");
+            cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);
+            printf("\t\t\t\tUtilizaste %s!\n", habilidadElegida->nombreHabilidad);
+            mostrarEscena(spriteHabilidad);
+            printf("\n");
+            system("pause");
         }
         else
         {
-            printf("No tienes mana suficiente para realizar esta habilidad\n");
+            printf("No tienes mana suficiente para realizar esta habilidad o se quedo sin usos\n");
+            flag = 0;
         }
         break;
-    case 7:
+    case 7: /// buff evasion
         if(habilidadElegida->usos > 0 && *manaActual >= habilidadElegida->mana)
         {
-        player->clase.estadisticas.agilidad = player->clase.estadisticas.agilidad + 1;
-        habilidadElegida->usos =habilidadElegida->usos -1;
-        agregar(accionesCombate, 20);
-        system("cls");
-        cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);
-        printf("\t\t\t\tUtilizaste %s!\n", habilidadElegida->nombreHabilidad);
-        mostrarEscena(spriteHabilidad);
-        printf("\n");
-        system("pause");
+            player->clase.estadisticas.agilidad = player->clase.estadisticas.agilidad + 1;
+            habilidadElegida->usos =habilidadElegida->usos -1;
+            agregar(accionesCombate, 20);
+            system("cls");
+            cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);
+            printf("\t\t\t\tUtilizaste %s!\n", habilidadElegida->nombreHabilidad);
+            mostrarEscena(spriteHabilidad);
+            printf("\n");
+            system("pause");
         }
         else
         {
-            printf("No tienes mana suficiente para realizar esta habilidad\n");
+            printf("No tienes mana suficiente para realizar esta habilidad o se quedo sin usos\n");
+            flag = 0;
         }
         break;
-    case 8:
+    case 8: /// gastar vida por danio
         if(habilidadElegida->usos > 0 && *manaActual >= habilidadElegida->mana)
         {
-        *vidaActualEnemigo = *vidaActualEnemigo - habilidadElegida->damage;
-        *manaActual = * manaActual - habilidadElegida->mana;
-        habilidadElegida->usos =habilidadElegida->usos -1;
-        agregar(accionesCombate, 21);
-        system("cls");
-        cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);
-        printf("\t\t\t\tUtilizaste %s!\n", habilidadElegida->nombreHabilidad);
-        mostrarEscena(spriteHabilidad);
-        printf("\n");
-        system("pause");
+            *vidaActualEnemigo = *vidaActualEnemigo - habilidadElegida->damage;
+            *vidaActual = *vidaActual - 25;
+            habilidadElegida->usos =habilidadElegida->usos -1;
+            agregar(accionesCombate, 21);
+            system("cls");
+            cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);
+            printf("\t\t\t\tUtilizaste %s!\n", habilidadElegida->nombreHabilidad);
+            mostrarEscena(spriteHabilidad);
+            printf("\n");
+            system("pause");
         }
         else
         {
-            printf("No tienes mana suficiente para realizar esta habilidad\n");
+            printf("No tienes mana suficiente para realizar esta habilidad o se quedo sin usos\n");
+            flag = 0;
         }
         break;
-    case 9:
+    case 9:///danio y retoceso
         if(habilidadElegida->usos > 0 && *manaActual >= habilidadElegida->mana)
         {
-        *vidaActualEnemigo = *vidaActualEnemigo - habilidadElegida->damage;
-        *vidaActual = *vidaActual - 25;
-        *manaActual = * manaActual - habilidadElegida->mana;
-        habilidadElegida->usos =habilidadElegida->usos -1;
-        agregar(accionesCombate, 22);
-        if(*vidaActual <= 0)
-        {
-            agregar(accionesCombate, 23);
-        }
-        system("cls");
-        cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);
-        printf("\t\t\t\tUtilizaste %s!\n", habilidadElegida->nombreHabilidad);
-        mostrarEscena(spriteHabilidad);
-        printf("\n");
-        system("pause");
+            *vidaActualEnemigo = *vidaActualEnemigo - habilidadElegida->damage;
+            *vidaActual = *vidaActual - 25;
+            *manaActual = * manaActual - habilidadElegida->mana;
+            habilidadElegida->usos =habilidadElegida->usos -1;
+            agregar(accionesCombate, 22);
+            if(*vidaActual <= 0)
+            {
+                agregar(accionesCombate, 23);
+            }
+            system("cls");
+            cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);
+            printf("\t\t\t\tUtilizaste %s!\n", habilidadElegida->nombreHabilidad);
+            mostrarEscena(spriteHabilidad);
+            printf("\n");
+            system("pause");
         }
         else
         {
-            printf("No tienes mana suficiente para realizar esta habilidad\n");
+            printf("No tienes mana suficiente para realizar esta habilidad o se quedo sin usos\n");
+            flag = 0;
         }
         break;
     }
+
+    return flag;
 }
