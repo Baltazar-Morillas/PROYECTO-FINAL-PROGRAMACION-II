@@ -18,12 +18,15 @@ stEstadisticas cargarStats(stEstadisticas a)
 }
 
 void mostrarEstadisticas(stEstadisticas aux){
-    printf("\nVITALIDAD: %d", aux.vitalidad);
-    printf("\nDEFENSA: %g", aux.defensa);
-    printf("\nATAQUE: %d", aux.ataque);
-    printf("\nMANA: %d", aux.mana);
-    printf("\nAGILIDAD: %d", aux.agilidad);
-    printf("\nCRITICO: %d", aux.critico);
+
+    printf("                               ||Vitalidad: %d||\n",aux.vitalidad);
+    printf("                               ||Defensa: %g||\n",aux.defensa);
+    printf("                               ||Ataque: %d||\n",aux.ataque);
+    printf("                               ||Mana: %d||\n",aux.mana);
+    printf("                               ||Agilidad: %d||\n",aux.agilidad);
+    printf("                               ||Critico: %d||\n",aux.critico);
+    printf("                               |                                                  |\n");
+    printf("                               \\--------------------------------------------------/\n");
 }
 
 stEstadisticas crearEstructuraEstadisticas(stEstadisticas dato){

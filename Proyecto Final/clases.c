@@ -91,7 +91,7 @@ nodoClases * agregarNodoOrdenadoClases(nodoClases * lista, nodoClases * nuevo)
     return lista;
 }
 
-void mostrarArchivoAltaClasesOrdenado(char archivito[])
+int mostrarArchivoAltaClasesOrdenado(char archivito[])
 {
     FILE * buffer=fopen(archivito, "rb");
     nodoClases * lista=inicListaClases();
@@ -109,7 +109,8 @@ void mostrarArchivoAltaClasesOrdenado(char archivito[])
         }
         if(res==0)
         {
-            printf("\nNo se encontro ninguna clase dada de alta!!!");
+            printf("\nNo se encontro ninguna clase dada de alta!!!\n");
+            system("pause");
         }else{
             mostrarListaOrdenadaClases(lista);
         }
@@ -119,6 +120,7 @@ void mostrarArchivoAltaClasesOrdenado(char archivito[])
     {
         printf("\nERROR AL MOSTRAR EL ARCHIVO DE CLASES!!!!\n");
     }
+    return res;
 }
 
 void mostrarListaOrdenadaClases(nodoClases * lista)
@@ -128,11 +130,11 @@ void mostrarListaOrdenadaClases(nodoClases * lista)
     {
     case '1':
         mostrarListaClasesRecursivaAscendente(lista);
-        system("pause");
+
         break;
     case '2':
         mostrarListaClasesRecursivaDescendiente(lista);
-        system("pause");
+
         break;
     }
 }
@@ -142,11 +144,16 @@ char menuMostrarClaseOrdenada()
     char opcion;
     do
     {
-        system ("cls");
-        printf ("\n\n\n\t\t\t\t\tMOSTRAR CLASES\n");
-        printf ("\n\t\t\t\t\t[ 1 ] - Mostrar clase de forma ascendente");
-        printf ("\n\t\t\t\t\t[ 2 ] - Mostrar clase de forma descendente");
-        printf ("\n\t\t\t\t\t[ 0 ] - Salir\n");
+
+        printf("                               /--------------------------------------------------\\\n");
+        printf("                               |                                                  |\n");
+        printf("                               |     | |----------Mostrar Clases----------| |     |\n");
+        printf("                               |                                                  |\n");
+        printf("                               |     [1]Mostrar clase de forma ascendente-[1]     |\n");
+        printf("                               |     [2]Mostrar clase de forma descendente[2]     |\n");
+        printf("                               |     [0]---------------Salir--------------[0]     |\n");
+        printf("                               |                                                  |\n");
+        printf("                               \\--------------------------------------------------/\n");
         fflush(stdin);
         opcion = getche();
     }
@@ -174,10 +181,11 @@ void mostrarListaClasesRecursivaDescendiente(nodoClases * lista)
 
 void mostrarClase(stRegistroClase aux)
 {
-    printf("\n--------------------------------");
-    printf("\nCLASE: %s", aux.nombreClase);
-    printf("\nID CLASE: %d", aux.idClase);
-    printf("\nALTA: %d", aux.alta);
+    printf("                               /--------------------------------------------------\\\n");
+    printf("                               |                                                  |\n");
+    printf("                               ||Clase: %s||\n",aux.nombreClase);
+    printf("                               ||IDClase: %d||\n",aux.idClase);
+    printf("                               ||Alta: %d||\n",aux.alta);
     mostrarEstadisticas(aux.estadisticas);
 }
 
@@ -440,7 +448,7 @@ void darAltaClase(char archivito[], int idClase)
     }
 }
 
-void mostrarClasesBajasArchivoOrdenado(char archivito[])
+int mostrarClasesBajasArchivoOrdenado(char archivito[])
 {
     FILE * buffer=fopen(archivito, "rb");
     nodoClases * lista=inicListaClases();
@@ -458,7 +466,8 @@ void mostrarClasesBajasArchivoOrdenado(char archivito[])
         }
         if(res==0)
         {
-            printf("\nNo se encontro ninguna clase dada de alta!!!");
+            printf("\nNo se encontro ninguna clase dada de Baja!!!\n");
+            system("pause");
         }else{
             mostrarListaOrdenadaClases(lista);
         }
@@ -468,4 +477,5 @@ void mostrarClasesBajasArchivoOrdenado(char archivito[])
     {
         printf("\nERROR AL MOSTRAR EL ARCHIVO DE CLASES!!!!\n");
     }
+    return res;
 }

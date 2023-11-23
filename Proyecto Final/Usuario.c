@@ -4,63 +4,32 @@
 #include <string.h>
 #include "Usuario.h"
 
-void InicLista(NodoL** lista){
-    *lista=NULL;
-}
-
-NodoL* CrearNodo(Usuario dato){
-    NodoL * aux=(NodoL*)malloc(sizeof(NodoL));
-    aux->dato=dato;
-    aux->siguiente=NULL;
-    return aux;
-}
-
-NodoL* BuscarUltimo(NodoL**lista){
-    NodoL*seg=*lista;
-    if(seg!=NULL){
-        while(seg->siguiente!=NULL){
-            seg=seg->siguiente;
-        }
-    }
-    return seg;
-}
-
-void AgregarFinal(NodoL**lista,Usuario Dato){
-    if(*lista==NULL){
-        *lista=CrearNodo(Dato);
-    }else{
-    NodoL* Ultimo=BuscarUltimo(lista);
-    NodoL* NuevoNodo=CrearNodo(Dato);
-    Ultimo->siguiente=NuevoNodo;
-    }
-}
-
 void MostrarPersonaje(Usuario Personaje){
 
         printf("                               |                                                  |\n");
-        printf("                                              ||Nombre: %s||\n",Personaje.Nombre);
-        printf("                                              ||Clase: %s||\n",Personaje.Clase.nombreClase);
+        printf("                               ||Nombre: %s||\n",Personaje.Nombre);
+        printf("                               ||Clase: %s||\n",Personaje.Clase.nombreClase);
         switch(Personaje.Lugar){
         case 1:
-            printf("                                              ||Lugar: Montanias de Rivia ||\n");
+            printf("                               ||Lugar: Montanias de Rivia ||\n");
             break;
         case 2:
-            printf("                                              ||Lugar: Castillo Kaer Morhen ||\n");
+            printf("                               ||Lugar: Castillo Kaer Morhen ||\n");
             break;
         case 3:
-            printf("                                              ||Lugar: Cuevas de Aedirn ||\n");
+            printf("                               ||Lugar: Cuevas de Aedirn ||\n");
             break;
         case 4:
-            printf("                                              ||Lugar: Bosque de Sodden ||\n");
+            printf("                               ||Lugar: Bosque de Sodden ||\n");
             break;
         case 5:
-            printf("                                              ||Lugar: Profundidades de la Fosa del Diablo ||\n");
+            printf("                               ||Lugar: Profundidades de la Fosa del Diablo ||\n");
             break;
         case 6:
-            printf("                                              ||Lugar: Fosa del Diablo ||\n");
+            printf("                               ||Lugar: Fosa del Diablo ||\n");
             break;
         case 7:
-            printf("                                              ||Lugar: Torre en ruinas del noble ||\n");
+            printf("                               ||Lugar: Torre en ruinas del noble ||\n");
             break;
         }
         printf("                               |                                                  |\n");

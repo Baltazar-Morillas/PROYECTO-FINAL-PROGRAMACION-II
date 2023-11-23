@@ -1,6 +1,6 @@
 #include "personajeYenemigos.h"
 
-stPersonaje cargarPersonaje(stClase celdaClase[], int validos){
+/*stPersonaje cargarPersonaje(stClase celdaClase[], int validos){
     stPersonaje personaje;
     char opcion;
     printf("Ingrese el nombre de su personaje: ");
@@ -54,4 +54,10 @@ stPersonaje darBajaPersonaje(stPersonaje personaje){
     printf("El personaje se ha dado de baja!!\n");
     system("pause");
     return personaje;
+}
+*/
+stEnemigo CrearEnemigo(){
+    stEnemigo aux;
+    aux.alta=1;
+
 }

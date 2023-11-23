@@ -11,23 +11,18 @@
 #include "clases.h"
 
 ///ESTRUCTURAS
-typedef struct{
-    char nombre[20];
-    int alta;
-    stClase clase;
-}stPersonaje;
 
 typedef struct{
     char nombreE[20];
     int IdEnemigo;
+    int alta;
     stEstadisticas estadisticasE;
     char sprite[1000];
-
 }stEnemigo;
 
 ///PROTOTIPADO
-stPersonaje cargarPersonaje(stClase celdaClase[], int validos);
-stPersonaje cargarClasePersonaje(stClase celdaClase[], int id, stPersonaje personaje, int validos);
-void mostrarPersonaje(stPersonaje personaje);
-stPersonaje darBajaPersonaje(stPersonaje personaje);
+//stPersonaje cargarPersonaje(stClase celdaClase[], int validos);
+//stPersonaje cargarClasePersonaje(stClase celdaClase[], int id, stPersonaje personaje, int validos);
+//void mostrarPersonaje(stPersonaje personaje);
+//stPersonaje darBajaPersonaje(stPersonaje personaje);
 #endif // PERSONAJEYENEMIGOS_H_INCLUDED

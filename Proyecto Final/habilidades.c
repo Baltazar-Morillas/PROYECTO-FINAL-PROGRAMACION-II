@@ -48,7 +48,7 @@ stRegistroHabilidades cargarHabilidad(stRegistroHabilidades aux)
     return aux;
 }
 
-void mostrarArchivoHabilidadesAltaOrdenado(char archivito[])
+int mostrarArchivoHabilidadesAltaOrdenado(char archivito[])
 {
     FILE * buffer=fopen(archivito, "rb");
     nodoHabilidades * lista=inicListaHabilidadesRegistro();
@@ -64,7 +64,7 @@ void mostrarArchivoHabilidadesAltaOrdenado(char archivito[])
             }
         }
         if(res==0){
-            printf("\nNo se encontro ninguna habilidad dada de alta!!!!");
+            printf("\nNo se encontro ninguna habilidad dada de alta!!!!\n");
         }else{
             mostrarListaOrdenadaHabilidades(lista);
         }
@@ -74,19 +74,20 @@ void mostrarArchivoHabilidadesAltaOrdenado(char archivito[])
     {
         printf("\nERROR NO SE PUDO MOSTRAR EL ARCHIVO DE HABILIDADES!!!!\n");
     }
+
+    return res;
 }
 
-void mostrarListaOrdenadaHabilidades(nodoHabilidades * lista){
+void mostrarListaOrdenadaHabilidades(nodoHabilidades * lista)
+{
     char sw;
     switch(sw=menuMostrarHabilidadOrdenada())
     {
     case '1':
         mostrarListaHabilidadesRecursivaAscendente(lista);
-        system("pause");
         break;
     case '2':
         mostrarListaHabilidadesRecursivaDescendente(lista);
-        system("pause");
         break;
     }
 }
@@ -96,11 +97,15 @@ char menuMostrarHabilidadOrdenada()
     char opcion;
     do
     {
-        system ("cls");
-        printf ("\n\n\n\t\t\t\t\tMOSTRAR HABILIDADES\n");
-        printf ("\n\t\t\t\t\t[ 1 ] - Mostrar habilidades de forma ascendente");
-        printf ("\n\t\t\t\t\t[ 2 ] - Mostrar habilidades de forma descendente");
-        printf ("\n\t\t\t\t\t[ 0 ] - Salir\n");
+
+        printf("                               /--------------------------------------------------\\\n");
+        printf("                               |                                                  |\n");
+        printf("                               |              | |--Habilidades--| |               |\n");
+        printf("                               |  [1]Mostrar habilidades de forma ascendente-[1]  |\n");
+        printf("                               |  [2]Mostrar habilidades de forma descendente[2]  |\n");
+        printf("                               |  [0]-----------------Salir------------------[0]  |\n");
+        printf("                               |                                                  |\n");
+        printf("                               \\--------------------------------------------------/\n");
         fflush(stdin);
         opcion = getche();
     }
@@ -183,16 +188,21 @@ void mostrarListaHabilidadesRecursivaDescendente(nodoHabilidades * lista)
 
 void mostrarHabilidad(stRegistroHabilidades aux)
 {
-    printf("\n--------------------------------");
-    printf("\nHABILIDAD: %s", aux.nombreHabilidad);
-    printf("\nDAMAGE: %d", aux.damage);
-    printf("\nID HABILIDAD: %d", aux.idHabilidad);
-    printf("\nMANA: %d", aux.mana);
-    printf("\nUSOS: %d", aux.usos);
-    printf("\nEFECTO: %d", aux.efecto);
-    printf("\nCLASE: %d", aux.idClase);
-    printf("\nALTA: %d", aux.alta);
-    printf("\nSPRITE: %s", aux.sprite);
+    printf("                               /--------------------------------------------------\\\n");
+    printf("                               |                                                  |\n");
+    printf("                               |              ||---Habilidades---||               |\n");
+    printf("                               |                                                  |\n");
+    printf("                               ||Habilidad: %s||\n",aux.nombreHabilidad);
+    printf("                               ||Damage: %d||\n",aux.damage);
+    printf("                               ||ID Habilidad: %d||\n",aux.idHabilidad);
+    printf("                               ||Mana: %d||\n",aux.mana);
+    printf("                               ||Usos: %d||\n",aux.usos);
+    printf("                               ||Efecto: %d||\n",aux.efecto);
+    printf("                               ||Clase: %d||\n",aux.idClase);
+    printf("                               ||Alta: %d||\n",aux.alta);
+    printf("                               ||Sprite: %s||\n",aux.sprite);
+    printf("                               |                                                  |\n");
+    printf("                               \\--------------------------------------------------/\n");
 }
 
 void modificarArchivoHabilidades(char archivito[], int id)
@@ -437,7 +447,7 @@ void darAltaHabilidad(char archivito[], int idHabilidad){
     }
 }
 
-void mostrarArchivoHabilidadesBajaOrdenado(char archivito[])
+int mostrarArchivoHabilidadesBajaOrdenado(char archivito[])
 {
     FILE * buffer=fopen(archivito, "rb");
     nodoHabilidades * lista=inicListaHabilidadesRegistro();
@@ -453,7 +463,7 @@ void mostrarArchivoHabilidadesBajaOrdenado(char archivito[])
             }
         }
         if(res==0){
-            printf("\nNo se encontro ninguna habilidad dada de alta!!!!");
+            printf("\nNo se encontro ninguna habilidad dada de Baja!!!!\n");
         }else{
             mostrarListaOrdenadaHabilidades(lista);
         }
@@ -463,4 +473,5 @@ void mostrarArchivoHabilidadesBajaOrdenado(char archivito[])
     {
         printf("\nERROR NO SE PUDO MOSTRAR EL ARCHIVO DE HABILIDADES!!!!\n");
     }
+    return res;
 }

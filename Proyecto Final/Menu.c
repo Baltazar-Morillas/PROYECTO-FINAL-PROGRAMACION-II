@@ -35,6 +35,7 @@ void Menu(char ArchivoP[],char archivitoClases[],char archivitoHabilidades[]){
             InicioSinPartidas();
             switch(getche()){
             case '1':
+
                 NuevaPartida(ArchivoP);
                 break;
             case '2':
@@ -319,6 +320,7 @@ void Admin(char archivitoClases[],char archivitoHabilidades[]){
 
             do{
 
+            int res=0;
                 system("cls");
 
                 printf("                               /--------------------------------------------------\\\n");
@@ -341,16 +343,41 @@ void Admin(char archivitoClases[],char archivitoHabilidades[]){
                     break;
                 case '2':
                     system("cls");
+                    res=mostrarArchivoAltaClasesOrdenado(archivitoClases);
+
+                    if(res==1){
+
+                    printf("\nIngrese ID de la clase que quiera dar de ALTA\n");
+                    printf("||-->>");
+                    scanf("%i",&id);
 
                     darBajaClase(archivitoClases,id);
+                    }
                     break;
                 case '3':
                     system("cls");
+                    res=mostrarClasesBajasArchivoOrdenado(archivitoClases);
+
+
+                    if(res==1){
+
+                    printf("\nIngrese ID de la clase que quiera dar de BAJA\n");
+                    printf("||-->>");
+                    scanf("%i",&id);
 
                     darAltaClase(archivitoClases,id);
+                    }
                     break;
                 case '4':
                     system("cls");
+                    printf("                                              | |----Baja-----| |                \n");
+                    mostrarClasesBajasArchivoOrdenado(archivitoClases);
+                    printf("                                              | |----Alta-----| |                \n");
+                    mostrarArchivoAltaClasesOrdenado(archivitoClases);
+
+                    printf("\nIngrese ID de la clase que quiera MODIFICAR\n");
+                    printf("||-->>");
+                    scanf("%i",&id);
 
                     modificarArchivoClases(archivitoClases,id);
                     break;
@@ -365,6 +392,7 @@ void Admin(char archivitoClases[],char archivitoHabilidades[]){
         case '2':
 
             do{
+                int res=0;
                 system("cls");
 
                 printf("                               /--------------------------------------------------\\\n");
@@ -388,16 +416,37 @@ void Admin(char archivitoClases[],char archivitoHabilidades[]){
                     break;
                 case '2':
                     system("cls");
+                    res=mostrarArchivoHabilidadesAltaOrdenado(archivitoHabilidades);
+                    if(res==1){
 
+                    printf("\nIngrese ID de la clase que quiera dar de ALTA\n");
+                    printf("||-->>");
+                    scanf("%i",&id);
                     darBajaHabilidad(archivitoHabilidades,id);
+                    }
+
                     break;
                 case '3':
                     system("cls");
+                    res=mostrarArchivoHabilidadesBajaOrdenado(archivitoHabilidades);
+                    if(res==1){
 
+                    printf("\nIngrese ID de la clase que quiera dar de BAJA\n");
+                    printf("||-->>");
+                    scanf("%i",&id);
                     darAltaHabilidad(archivitoHabilidades,id);
+                    }
                     break;
                 case '4':
                     system("cls");
+                    printf("                                              | |----Baja-----| |                \n");
+                    mostrarArchivoHabilidadesBajaOrdenado(archivitoHabilidades);
+                    printf("                                              | |----Alta-----| |                \n");
+                    mostrarArchivoHabilidadesAltaOrdenado(archivitoHabilidades);
+
+                    printf("\nIngrese ID de la clase que quiera MODIFICAR\n");
+                    printf("||-->>");
+                    scanf("%i",&id);
 
                     modificarArchivoHabilidades(archivitoHabilidades,id);
                     break;
