@@ -10,6 +10,7 @@ typedef struct Usuario{
 } Usuario;
 
 void MostrarPersonaje(Usuario Personaje);
+Usuario cargarClasePersonaje(stClase celdaClase[], int id, Usuario personaje, int validos);
 void MostrarHistorial(char ArchivoP[]);
 void BajaPersonaje(char ArchivoP[]);
 void MostrarUltimaPartida(char ArchivoP[]);

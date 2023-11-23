@@ -35,6 +35,18 @@ void MostrarPersonaje(Usuario Personaje){
         printf("                               |                                                  |\n");
 }
 
+Usuario cargarClasePersonaje(stClase celdaClase[], int id, Usuario personaje, int validos){
+    int flag=0, i=0;
+    while(i<validos && flag==0){
+        if(id==celdaClase[i].idClase){
+            personaje.Clase=celdaClase[i];
+            flag=1;
+        }
+        i++;
+    }
+    return personaje;
+}
+
 void MostrarHistorial(char ArchivoP[]){
     FILE *Buffer = fopen(ArchivoP,"r+b");
     Usuario aux;

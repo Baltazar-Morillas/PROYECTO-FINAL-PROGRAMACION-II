@@ -1,10 +1,8 @@
 #include "FuncionesPeleas.h"
 
-int funcionDePelea(Usuario player, stEnemigo enemy, int pocionRoja, int pocionAzul)
+int funcionDePelea(Usuario player, stEnemigo enemy, int pocionRoja, int pocionAzul, Fila * accionesCombate)
 {
 
-    Fila * accionesCombate;
-    inicFila(accionesCombate);
 
     int victoria, bombaHumo = 0, manaActual = player.Clase.estadisticas.mana, turno = 1;
     float vidaActual = player.Clase.estadisticas.vitalidad, vidaActualEnemigo = enemy.estadisticasE.vitalidad;

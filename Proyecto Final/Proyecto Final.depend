@@ -69,16 +69,17 @@
 	<math.h>
 	<windows.h>
 
-1700714418 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\funcionespeleas.c
+1700724223 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\funcionespeleas.c
 	"FuncionesPeleas.h"
 
-1700701040 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\funcionespeleas.h
+1700724223 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\funcionespeleas.h
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 	<math.h>
 	<windows.h>
 	<string.h>
+	"Usuario.h"
 	"habilidades.h"
 	"estadisticas.h"
 	"clases.h"
@@ -104,7 +105,7 @@
 	<math.h>
 	<windows.h>
 
-1700700246 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\clases.h
+1700715063 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\clases.h
 	"estadisticas.h"
 	<stdio.h>
 	<stdlib.h>
@@ -114,7 +115,7 @@
 	<math.h>
 	<windows.h>
 
-1700714846 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\habilidades.h
+1700715063 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\habilidades.h
 	"clases.h"
 	<stdio.h>
 	<stdlib.h>
@@ -124,25 +125,28 @@
 	<math.h>
 	<windows.h>
 
-1700711747 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\main.c
+1700724598 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 	<math.h>
 	<windows.h>
+	"Menu.h"
+	"FuncionesHistoria.h"
 	"habilidades.h"
 	"estadisticas.h"
 	"clases.h"
+	"filas.h"
 	"FuncionesPeleas.h"
 	"personajeYenemigos.h"
 
-1700714525 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\habilidades.c
+1700715291 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\habilidades.c
 	"habilidades.h"
 
-1700700837 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\clases.c
+1700715063 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\clases.c
 	"clases.h"
 
-1700611798 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\estadisticas.c
+1700715063 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\estadisticas.c
 	"estadisticas.h"
 
 1700683643 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\clases.c
@@ -161,17 +165,17 @@
 	<stdio.h>
 	<stdlib.h>
 
-1700463873 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\filas.c
+1700724692 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\filas.c
 	"filas.h"
 
-1700463877 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\filas.h
+1700722650 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\filas.h
 	<stdio.h>
 	<stdlib.h>
 
-1700611774 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\personajeyenemigos.c
+1700718526 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\personajeyenemigos.c
 	"personajeYenemigos.h"
 
-1700709362 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\personajeyenemigos.h
+1700718529 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\personajeyenemigos.h
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -309,4 +313,50 @@
 	<conio.h>
 	<string.h>
 	"Usuario.h"
+
+1700717407 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\usuario.h
+	"clases.h"
+
+1700717408 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\usuario.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"Usuario.h"
+
+1700723998 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\funcioneshistoria.c
+	"FuncionesHistoria.h"
+
+1700720613 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\funcioneshistoria.h
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	"conio.h"
+	"Usuario.h"
+	"FuncionesPeleas.h"
+	"personajeYenemigos.h"
+	"estadisticas.h"
+
+1700724159 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\menu.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<time.h>
+	<windows.h>
+	"Menu.h"
+	"clases.h"
+	"FuncionesHistoria.h"
+	"habilidades.h"
+	"FuncionesPeleas.h"
+	"Usuario.h"
+	"filas.h"
+
+1700723998 c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\menu.h
+	"Usuario.h"
+	"filas.h"
+
+1700465014 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\libreriaprincipal.c
+
+1700498539 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\funcioneslugares.c
 

@@ -31,10 +31,22 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="FuncionesHistoria.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="FuncionesHistoria.h" />
 		<Unit filename="FuncionesPeleas.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="FuncionesPeleas.h" />
+		<Unit filename="Menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Menu.h" />
+		<Unit filename="Usuario.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Usuario.h" />
 		<Unit filename="clases.c">
 			<Option compilerVar="CC" />
 		</Unit>

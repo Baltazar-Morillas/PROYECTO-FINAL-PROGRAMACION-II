@@ -13,7 +13,7 @@
 #include "filas.h"
 #include "personajeYenemigos.h"
 
-int funcionDePelea(Usuario player, stEnemigo enemy, int pocionRoja, int pocionAzul);
+int funcionDePelea(Usuario player, stEnemigo enemy, int pocionRoja, int pocionAzul, Fila * accionesCombate);
 void cargarMatrizEscena(char matrizEscena[][50], char escena[]);
 void mostrarEscena(char escena[][50]);
 void barraDeVida(int vidaMaxima, float * vidaActual);

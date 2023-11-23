@@ -4,9 +4,11 @@
 #include <math.h>
 #include <windows.h>
 #include "Menu.h"
+#include "FuncionesHistoria.h"
 #include "habilidades.h"
 #include "estadisticas.h"
 #include "clases.h"
+#include "filas.h"
 #include "FuncionesPeleas.h"
 #include "personajeYenemigos.h"
 
@@ -14,33 +16,39 @@
 const char ArchivoP[]="ArchivoPersonajes.bin";
 const char archivitoClases[]="archivitoClases.bin";
 const char archivitoHabilidades[]="archivitoHabilidades.bin";
+const char archivoArbol[] = "archivoLugar.bin";
+const char archivoTexto[] = "archivoRelato.bin";
+const char archivoEnemigo[]= "";
 
 int main()
 {
+    Fila  accionesCombates;
+    accionesCombates.fin=NULL;
+
     ///Cosas de Tata
 
-    //Menu(ArchivoP,archivitoClases,archivitoHabilidades);
+    //Menu(ArchivoP,archivitoClases,archivitoHabilidades, archivoArbol, archivoTexto, archivoEnemigo, accionesCombates);
 
 
     ///Cosas de chuli
     system("color 0A");
     int id=0, victoria, pocionRoja = 3, pocionAzul = 3, validos;
     stClase celdaClases[10];
-    stPersonaje player;
+    Usuario player;
     stEnemigo enemy;
 
     validos = pasarArchivoClaseToCelda(archivitoClases, celdaClases, 10);
     pasarArchivoHabilidadesToCLase(celdaClases, archivitoHabilidades, validos);
 
-    player = cargarPersonaje(celdaClases, validos);
+    player = NuevaPartida(ArchivoP,celdaClases, validos);
     enemy.estadisticasE = cargarStats (enemy.estadisticasE);
 
-    victoria = funcionDePelea(player, enemy, pocionRoja, pocionAzul);
+    victoria = funcionDePelea(player, enemy, pocionRoja, pocionAzul,accionesCombates);
 
 
 
     ///Cosas de balta
-
+/*
     int id=0, validos=0;
     char res;
     stClase celdaClase[5];
