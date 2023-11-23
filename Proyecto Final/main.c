@@ -15,6 +15,7 @@ const char archivitoClases[]="archivitoClases.bin";
 int main()
 {
 
+
     ///Cosas de chuli
     system("color 0A");
     int id=0, victoria, pocionRoja = 3, pocionAzul = 3, validos;
@@ -24,7 +25,6 @@ int main()
 
     validos = pasarArchivoClaseToCelda(archivitoClases, celdaClases, 10);
     pasarArchivoHabilidadesToCLase(celdaClases, archivitoHabilidades, validos);
-
 
     player = cargarPersonaje(celdaClases, validos);
     enemy.estadisticasE = cargarStats (enemy.estadisticasE);
@@ -51,6 +51,10 @@ int main()
     mostrarArchivoClases(archivitoClases);
     system("pause");
     */
-    mostrarArchivoHabilidadesAltaOrdenado(archivitoHabilidades);
+    //mostrarArchivoHabilidadesAltaOrdenado(archivitoHabilidades);
+
+    //mostrarArchivoHabilidadesAltaOrdenado(archivitoHabilidades);
+    /*modificarArchivoHabilidades(archivitoHabilidades, 5);
+    mostrarArchivoHabilidadesAltaOrdenado(archivitoHabilidades);*/
     return 0;
 }

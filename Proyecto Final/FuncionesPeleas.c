@@ -501,6 +501,7 @@ int menuHabilidades(float * vidaActual, float * vidaActualEnemigo, int * manaAct
     int habElegida, flag, flag2 = 0;
 
     mostrarHabilidadesJugador(player->clase.habilidades);
+    printf("nashe");
     do
     {
         printf("Habilidad a utilizar: ");
@@ -646,7 +647,6 @@ int efectoHabilidad(float * vidaActual, float * vidaActualEnemigo, int * manaAct
             system("cls");
             cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);
             printf("\t\t\t\tUtilizaste %s!\n", habilidadElegida->nombreHabilidad);
-            printf("danio pa");
             mostrarEscena(spriteHabilidad);
             printf("\n");
             system("pause");

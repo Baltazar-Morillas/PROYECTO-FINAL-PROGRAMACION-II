@@ -22,7 +22,6 @@ typedef struct{
     int IdEnemigo;
     stEstadisticas estadisticasE;
     char sprite[1000];
-
 }stEnemigo;
 
 ///PROTOTIPADO
