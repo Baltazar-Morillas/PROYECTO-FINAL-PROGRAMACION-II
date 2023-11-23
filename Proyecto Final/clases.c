@@ -36,9 +36,65 @@ stRegistroClase cargarClase(stRegistroClase aux)
     return aux;
 }
 
-void mostrarArchivoClases(char archivito[])
+nodoClases * inicListaClases()
+{
+    return NULL;
+}
+
+nodoClases * crearNodoListaClase(stRegistroClase dato)
+{
+    nodoClases * aux = (nodoClases *) malloc(sizeof(nodoClases));
+    aux->siguiente=inicListaClases();
+    aux->registro=dato;
+    return aux;
+}
+
+nodoClases * agregarAlPrincipioListaClase(nodoClases * lista, nodoClases * nuevo){
+    if(lista==NULL){
+        lista=nuevo;
+    }else{
+        nuevo->siguiente=lista;
+        lista=nuevo;
+    }
+    return lista;
+}
+
+nodoClases * agregarNodoOrdenadoClases(nodoClases * lista, nodoClases * nuevo)
+{
+    if(lista==NULL)
+    {
+        lista=nuevo;
+    }
+    else if(strcmpi(lista->registro.nombreClase, nuevo->registro.nombreClase)>0)
+    {
+        lista=agregarAlPrincipioListaClase(lista, nuevo);
+    }
+    else
+    {
+        nodoClases * ante=lista;
+        nodoClases * seg=lista->siguiente;
+        while((seg!=NULL) && (strcmpi(seg->registro.nombreClase, nuevo->registro.nombreClase)<0))
+        {
+            ante=seg;
+            seg=seg->siguiente;
+        }
+        if(seg!=NULL && (strcmpi(seg->registro.nombreClase, nuevo->registro.nombreClase)>0))
+        {
+            ante->siguiente=nuevo;
+            nuevo->siguiente=seg;
+        }
+        else
+        {
+            ante->siguiente=nuevo;
+        }
+    }
+    return lista;
+}
+
+void mostrarArchivoAltaClasesOrdenado(char archivito[])
 {
     FILE * buffer=fopen(archivito, "rb");
+    nodoClases * lista=inicListaClases();
     stRegistroClase aux;
     int res=0;
     if(buffer)
@@ -47,19 +103,72 @@ void mostrarArchivoClases(char archivito[])
         {
             if(aux.alta==1)
             {
-                mostrarClase(aux);
+                lista = agregarNodoOrdenadoClases(lista, crearNodoListaClase(aux));
                 res=1;
             }
         }
         if(res==0)
         {
             printf("\nNo se encontro ninguna clase dada de alta!!!");
+        }else{
+            mostrarListaOrdenadaClases(lista);
         }
         fclose(buffer);
     }
     else
     {
         printf("\nERROR AL MOSTRAR EL ARCHIVO DE CLASES!!!!\n");
+    }
+}
+
+void mostrarListaOrdenadaClases(nodoClases * lista)
+{
+    char sw;
+    switch(sw=menuMostrarClaseOrdenada())
+    {
+    case '1':
+        mostrarListaClasesRecursivaAscendente(lista);
+        system("pause");
+        break;
+    case '2':
+        mostrarListaClasesRecursivaDescendiente(lista);
+        system("pause");
+        break;
+    }
+}
+
+char menuMostrarClaseOrdenada()
+{
+    char opcion;
+    do
+    {
+        system ("cls");
+        printf ("\n\n\n\t\t\t\t\tMOSTRAR CLASES\n");
+        printf ("\n\t\t\t\t\t[ 1 ] - Mostrar clase de forma ascendente");
+        printf ("\n\t\t\t\t\t[ 2 ] - Mostrar clase de forma descendente");
+        printf ("\n\t\t\t\t\t[ 0 ] - Salir\n");
+        fflush(stdin);
+        opcion = getche();
+    }
+    while(opcion < '0' || opcion > '2');
+    return opcion;
+}
+
+void mostrarListaClasesRecursivaAscendente(nodoClases * lista)
+{
+    if(lista!=NULL)
+    {
+        mostrarClase(lista->registro);
+        mostrarListaClasesRecursivaAscendente(lista->siguiente);
+    }
+}
+
+void mostrarListaClasesRecursivaDescendiente(nodoClases * lista)
+{
+    if(lista!=NULL)
+    {
+        mostrarListaClasesRecursivaAscendente(lista->siguiente);
+        mostrarClase(lista->registro);
     }
 }
 
@@ -276,11 +385,14 @@ void darBajaClase(char archivito[], int idClase)
                 flag=1;
             }
         }
-        if(flag==1){
+        if(flag==1)
+        {
             aux.alta=0;
             fseek(buffer,sizeof(stRegistroClase)*(-1), 1);
             fwrite(&aux, sizeof(stRegistroClase), 1, buffer);
-        }else{
+        }
+        else
+        {
             printf("\nNo se encontro la clase que quiere dar de baja!!!!");
         }
         fclose(buffer);
@@ -305,11 +417,14 @@ void darAltaClase(char archivito[], int idClase)
                 flag=1;
             }
         }
-        if(flag==1){
+        if(flag==1)
+        {
             aux.alta=1;
             fseek(buffer,sizeof(stRegistroClase)*(-1), 1);
             fwrite(&aux, sizeof(stRegistroClase), 1, buffer);
-        }else{
+        }
+        else
+        {
             printf("\nNo se encontro la clase que quiere dar de alta!!");
         }
         fclose(buffer);
@@ -320,9 +435,10 @@ void darAltaClase(char archivito[], int idClase)
     }
 }
 
-void mostrarClasesBajasArchivo(char archivito[])
+void mostrarClasesBajasArchivoOrdenado(char archivito[])
 {
     FILE * buffer=fopen(archivito, "rb");
+    nodoClases * lista=inicListaClases();
     stRegistroClase aux;
     int res=0;
     if(buffer)
@@ -331,13 +447,15 @@ void mostrarClasesBajasArchivo(char archivito[])
         {
             if(aux.alta==0)
             {
-                mostrarClase(aux);
+                lista = agregarNodoOrdenadoClases(lista, crearNodoListaClase(aux));
                 res=1;
             }
         }
         if(res==0)
         {
-            printf("\nNo se encontro ninguna clase dada de baja!!!");
+            printf("\nNo se encontro ninguna clase dada de alta!!!");
+        }else{
+            mostrarListaOrdenadaClases(lista);
         }
         fclose(buffer);
     }

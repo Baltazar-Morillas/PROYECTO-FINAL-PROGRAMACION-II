@@ -48,9 +48,10 @@ stRegistroHabilidades cargarHabilidad(stRegistroHabilidades aux)
     return aux;
 }
 
-void mostrarArchivitoHabilidades(char archivito[])
+void mostrarArchivoHabilidadesAltaOrdenado(char archivito[])
 {
     FILE * buffer=fopen(archivito, "rb");
+    nodoHabilidades * lista=inicListaHabilidadesRegistro();
     stRegistroHabilidades aux;
     int res=0;
     if(buffer)
@@ -58,18 +59,125 @@ void mostrarArchivitoHabilidades(char archivito[])
         while(fread(&aux, sizeof(stRegistroHabilidades), 1, buffer)>0)
         {
             if(aux.alta==1){
-                mostrarHabilidad(aux);
+                lista=agregarNodoOrdenadoHabilidades(lista, crearNodoListaHabilidades(aux));
                 res=1;
             }
         }
         if(res==0){
             printf("\nNo se encontro ninguna habilidad dada de alta!!!!");
+        }else{
+            mostrarListaOrdenadaHabilidades(lista);
         }
         fclose(buffer);
     }
     else
     {
         printf("\nERROR NO SE PUDO MOSTRAR EL ARCHIVO DE HABILIDADES!!!!\n");
+    }
+}
+
+void mostrarListaOrdenadaHabilidades(nodoHabilidades * lista){
+    char sw;
+    switch(sw=menuMostrarHabilidadOrdenada())
+    {
+    case '1':
+        mostrarListaHabilidadesRecursivaAscendente(lista);
+        system("pause");
+        break;
+    case '2':
+        mostrarListaHabilidadesRecursivaDescendente(lista);
+        system("pause");
+        break;
+    }
+}
+
+char menuMostrarHabilidadOrdenada()
+{
+    char opcion;
+    do
+    {
+        system ("cls");
+        printf ("\n\n\n\t\t\t\t\tMOSTRAR HABILIDADES\n");
+        printf ("\n\t\t\t\t\t[ 1 ] - Mostrar habilidades de forma ascendente");
+        printf ("\n\t\t\t\t\t[ 2 ] - Mostrar habilidades de forma descendente");
+        printf ("\n\t\t\t\t\t[ 0 ] - Salir\n");
+        fflush(stdin);
+        opcion = getche();
+    }
+    while(opcion < '0' || opcion > '2');
+    return opcion;
+}
+
+nodoHabilidades * inicListaHabilidadesRegistro()
+{
+    return NULL;
+}
+
+nodoHabilidades * crearNodoListaHabilidades(stRegistroHabilidades dato)
+{
+    nodoHabilidades * aux = (nodoClases *) malloc(sizeof(nodoHabilidades));
+    aux->siguiente=inicListaHabilidadesRegistro();
+    aux->registro=dato;
+    return aux;
+}
+
+nodoHabilidades * agregarNodoOrdenadoHabilidades(nodoHabilidades * lista, nodoHabilidades * nuevo)
+{
+    if(lista==NULL)
+    {
+        lista=nuevo;
+    }
+    else if(strcmpi(lista->registro.nombreHabilidad, nuevo->registro.nombreHabilidad)>0)
+    {
+        lista=agregarAlPrincipioListaHabilidades(lista, nuevo);
+    }
+    else
+    {
+        nodoHabilidades * ante=lista;
+        nodoHabilidades* seg=lista->siguiente;
+        while((seg!=NULL) && (strcmpi(seg->registro.nombreHabilidad, nuevo->registro.nombreHabilidad)<0))
+        {
+            ante=seg;
+            seg=seg->siguiente;
+        }
+        if(seg!=NULL && (strcmpi(seg->registro.nombreHabilidad, nuevo->registro.nombreHabilidad)>0))
+        {
+            ante->siguiente=nuevo;
+            nuevo->siguiente=seg;
+        }
+        else
+        {
+            ante->siguiente=nuevo;
+        }
+    }
+    return lista;
+}
+
+nodoHabilidades * agregarAlPrincipioListaHabilidades(nodoHabilidades * lista, nodoHabilidades * nuevo){
+    if(lista==NULL){
+        lista=nuevo;
+    }else{
+        nuevo->siguiente=lista;
+        lista=nuevo;
+    }
+    return lista;
+}
+
+void mostrarListaHabilidadesRecursivaAscendente(nodoHabilidades * lista)
+{
+    if(lista!=NULL)
+    {
+        mostrarHabilidad(lista->registro);
+        mostrarListaHabilidadesRecursivaAscendente(lista->siguiente);
+    }
+}
+
+void mostrarListaHabilidadesRecursivaDescendente(nodoHabilidades * lista)
+{
+    if(lista!=NULL)
+    {
+        mostrarListaHabilidadesRecursivaDescendente(lista->siguiente);
+        mostrarHabilidad(lista->registro);
     }
 }
 
@@ -324,9 +432,10 @@ void darAltaHabilidad(char archivito[], int idHabilidad){
     }
 }
 
-void mostrarHabilidadesBajasArchivo(char archivito[])
+void mostrarArchivoHabilidadesBajaOrdenado(char archivito[])
 {
     FILE * buffer=fopen(archivito, "rb");
+    nodoHabilidades * lista=inicListaHabilidadesRegistro();
     stRegistroHabilidades aux;
     int res=0;
     if(buffer)
@@ -334,12 +443,14 @@ void mostrarHabilidadesBajasArchivo(char archivito[])
         while(fread(&aux, sizeof(stRegistroHabilidades), 1, buffer)>0)
         {
             if(aux.alta==0){
-                mostrarHabilidad(aux);
+                lista=agregarNodoOrdenadoHabilidades(lista, crearNodoListaHabilidades(aux));
                 res=1;
             }
         }
         if(res==0){
-            printf("\nNo se encontro ninguna habilidad dada de baja!!!");
+            printf("\nNo se encontro ninguna habilidad dada de alta!!!!");
+        }else{
+            mostrarListaOrdenadaHabilidades(lista);
         }
         fclose(buffer);
     }

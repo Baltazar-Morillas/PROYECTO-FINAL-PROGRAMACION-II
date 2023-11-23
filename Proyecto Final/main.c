@@ -46,5 +46,6 @@ int main()
     mostrarArchivoClases(archivitoClases);
     system("pause");
     */
+    mostrarArchivoHabilidadesAltaOrdenado(archivitoHabilidades);
     return 0;
 }
