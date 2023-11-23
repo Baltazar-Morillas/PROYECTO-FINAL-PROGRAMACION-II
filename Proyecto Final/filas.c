@@ -5,7 +5,9 @@ nodo * inicLista(){
 }
 
 void inicFila(Fila * fila){
-    fila->inicio=inicLista();
+    printf("a");
+    fila->inicio=NULL;
+    printf("a");
     fila->fin=inicLista();
 }
 

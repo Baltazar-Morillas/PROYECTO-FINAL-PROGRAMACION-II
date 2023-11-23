@@ -120,7 +120,7 @@ nodoHabilidades * inicListaHabilidadesRegistro()
 
 nodoHabilidades * crearNodoListaHabilidades(stRegistroHabilidades dato)
 {
-    nodoHabilidades * aux = (nodoClases *) malloc(sizeof(nodoHabilidades));
+    nodoHabilidades * aux = (nodoHabilidades *) malloc(sizeof(nodoHabilidades));
     aux->siguiente=inicListaHabilidadesRegistro();
     aux->registro=dato;
     return aux;
@@ -200,9 +200,16 @@ void mostrarHabilidad(stRegistroHabilidades aux)
     printf("                               ||Efecto: %d||\n",aux.efecto);
     printf("                               ||Clase: %d||\n",aux.idClase);
     printf("                               ||Alta: %d||\n",aux.alta);
-    printf("                               ||Sprite: %s||\n",aux.sprite);
+    printf("                               ||Sprite: \n",aux.sprite);
+    mostrarSprite(aux.sprite);
     printf("                               |                                                  |\n");
     printf("                               \\--------------------------------------------------/\n");
+}
+
+void mostrarSprite(char sprite[]){
+    char matrizEscena[20][50];
+    cargarMatrizEscena(matrizEscena, sprite);
+    mostrarEscena(matrizEscena);
 }
 
 void modificarArchivoHabilidades(char archivito[], int id)
@@ -339,27 +346,18 @@ void pasarArchivoHabilidadesToCLase(stClase celdaClase[], char archivito[], int 
 void altaHabilidad(stClase celdaClase[], stRegistroHabilidades habilidad, int validos){
     listaHabilidades * lista=crearNodoLista(habilidad);
     int pos=buscarHabilidadClase(celdaClase, habilidad.idClase, validos);
-    celdaClase[pos].habilidades=agregarAlFinalHabilidad(celdaClase[pos].habilidades, lista);
+    celdaClase[pos].habilidades=agregarAlPrincipioHabilidad(celdaClase[pos].habilidades, lista);
 }
 
-listaHabilidades * agregarAlFinalHabilidad(listaHabilidades * lista, listaHabilidades * nuevo){
+listaHabilidades * agregarAlPrincipioHabilidad(listaHabilidades * lista, listaHabilidades * nuevo){
     if(lista==NULL){
         lista=nuevo;
+        lista->siguiente = NULL;
     }else{
-        listaHabilidades * ultimo=buscarUltimoHabilidad(lista);
-        ultimo->siguiente=nuevo;
+        nuevo->siguiente=lista;
+        lista=nuevo;
     }
     return lista;
-}
-
-listaHabilidades * buscarUltimoHabilidad(listaHabilidades * lista){
-    listaHabilidades * seg=lista;
-    if(seg!=NULL){
-        while(seg->siguiente!=NULL){
-            seg=seg->siguiente;
-        }
-    }
-    return seg;
 }
 
 int buscarHabilidadClase(stClase celdaClase[], int id, int validos){
@@ -375,8 +373,8 @@ int buscarHabilidadClase(stClase celdaClase[], int id, int validos){
 
 listaHabilidades * crearNodoLista(stRegistroHabilidades dato){
     listaHabilidades * aux = (listaHabilidades*) malloc(sizeof(listaHabilidades));
-    aux->siguiente=NULL;
-    aux=registroToLista(aux, dato);
+    aux->siguiente = NULL;
+    aux = registroToLista(aux, dato);
     return aux;
 }
 

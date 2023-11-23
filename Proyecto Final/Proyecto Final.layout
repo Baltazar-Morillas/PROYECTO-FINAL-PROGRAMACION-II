@@ -2,68 +2,6 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="estadisticas.c" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="514" topLine="6" />
-		</Cursor>
-	</File>
-	<File name="FuncionesPeleas.h" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="214" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Usuario.h" open="1" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="192" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="estadisticas.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="180" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="main.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="284" topLine="15" />
-		</Cursor>
-	</File>
-	<File name="personajeYenemigos.h" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="439" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Usuario.c" open="1" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1301" topLine="15" />
-		</Cursor>
-		<Folding>
-			<Collapse line="37" />
-		</Folding>
-	</File>
-	<File name="habilidades.c" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2567" topLine="30" />
-		</Cursor>
-		<Folding>
-			<Collapse line="3" />
-			<Collapse line="26" />
-		</Folding>
-	</File>
-	<File name="clases.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1616" topLine="9" />
-		</Cursor>
-	</File>
-	<File name="personajeYenemigos.c" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="33" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="FuncionesPeleas.c" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="22257" topLine="635" />
-		</Cursor>
-	</File>
 	<File name="Menu.c" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="339" topLine="9" />
@@ -73,7 +11,47 @@
 			<Collapse line="126" />
 		</Folding>
 	</File>
-	<File name="clases.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="estadisticas.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="180" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="personajeYenemigos.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="439" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="habilidades.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2567" topLine="61" />
+		</Cursor>
+	</File>
+	<File name="habilidades.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1125" topLine="22" />
+		</Cursor>
+	</File>
+	<File name="main.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="284" topLine="15" />
+		</Cursor>
+	</File>
+	<File name="personajeYenemigos.c" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="33" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Usuario.c" open="1" top="1" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1301" topLine="6" />
+		</Cursor>
+	</File>
+	<File name="FuncionesPeleas.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="214" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="clases.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="5483" topLine="4" />
 		</Cursor>
@@ -82,9 +60,24 @@
 			<Collapse line="26" />
 		</Folding>
 	</File>
-	<File name="habilidades.h" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="clases.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1125" topLine="18" />
+			<Cursor1 position="1616" topLine="9" />
+		</Cursor>
+	</File>
+	<File name="FuncionesPeleas.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="22257" topLine="698" />
+		</Cursor>
+	</File>
+	<File name="estadisticas.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="514" topLine="6" />
+		</Cursor>
+	</File>
+	<File name="Usuario.h" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="192" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
