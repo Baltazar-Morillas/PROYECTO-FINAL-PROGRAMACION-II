@@ -178,3 +178,114 @@
 	"estadisticas.h"
 	"clases.h"
 
+1700699183 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\clases.c
+	"clases.h"
+
+1700699819 c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\clases.h
+	"estadisticas.h"
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<math.h>
+	<windows.h>
+
+1700684455 c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\estadisticas.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<time.h>
+	<math.h>
+	<windows.h>
+
+1700684455 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\estadisticas.c
+	"estadisticas.h"
+
+1700684455 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\filas.c
+	"filas.h"
+
+1700684455 c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\filas.h
+	<stdio.h>
+	<stdlib.h>
+
+1700687760 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\funcionespeleas.c
+	"FuncionesPeleas.h"
+
+1700684455 c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\funcionespeleas.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<math.h>
+	<windows.h>
+	<string.h>
+	"habilidades.h"
+	"estadisticas.h"
+	"clases.h"
+	"filas.h"
+	"personajeYenemigos.h"
+
+1700699819 c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\habilidades.h
+	"clases.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<time.h>
+	<math.h>
+	<windows.h>
+
+1700684455 c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\personajeyenemigos.h
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<math.h>
+	<windows.h>
+	<string.h>
+	"habilidades.h"
+	"estadisticas.h"
+	"clases.h"
+
+1700699183 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\habilidades.c
+	"habilidades.h"
+
+1700700657 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<math.h>
+	<windows.h>
+	"Menu.h"
+	"habilidades.h"
+	"estadisticas.h"
+	"clases.h"
+	"FuncionesPeleas.h"
+	"personajeYenemigos.h"
+
+1700684455 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\personajeyenemigos.c
+	"personajeYenemigos.h"
+
+1700700577 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\usuario.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"Usuario.h"
+
+1700700577 c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\usuario.h
+	"clases.h"
+
+1700702408 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\menu.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<time.h>
+	<windows.h>
+	"Menu.h"
+	"clases.h"
+	"habilidades.h"
+	"FuncionesPeleas.h"
+	"Usuario.h"
+
+1700700639 c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\menu.h
+

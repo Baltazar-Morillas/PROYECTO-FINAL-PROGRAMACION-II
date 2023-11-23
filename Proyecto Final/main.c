@@ -3,18 +3,25 @@
 #include <time.h>
 #include <math.h>
 #include <windows.h>
+#include "Menu.h"
 #include "habilidades.h"
 #include "estadisticas.h"
 #include "clases.h"
 #include "FuncionesPeleas.h"
 #include "personajeYenemigos.h"
 
-const char archivitoHabilidades[]="archivitoHabilidades.bin";
+
+const char ArchivoP[]="ArchivoPersonajes.bin";
 const char archivitoClases[]="archivitoClases.bin";
+const char archivitoHabilidades[]="archivitoHabilidades.bin";
 
 int main()
 {
+    ///Cosas de Tata
 
+    Menu(ArchivoP,archivitoClases,archivitoHabilidades);
+
+    /*
     ///Cosas de chuli
     system("color 0B");
     int id=0, victoria, pocionRoja = 3, pocionAzul = 3, validos;
@@ -34,7 +41,7 @@ int main()
 
 
     ///Cosas de balta
-    /*
+
     int id=0, validos=0;
     char res;
     stClase celdaClase[5];
@@ -51,5 +58,8 @@ int main()
     mostrarArchivoClases(archivitoClases);
     system("pause");
     */
+
     return 0;
 }
+
+

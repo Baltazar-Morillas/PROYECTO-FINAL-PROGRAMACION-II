@@ -35,6 +35,8 @@ typedef struct listaHabilidades{
     struct listaHabilidades * siguiente;
 }listaHabilidades;
 
+
+
 ///PROTOTIPADO FUNCIONES HABILIDADES
 void cargarArchivoHabilidades(char archivito[]);
 stRegistroHabilidades cargarHabilidad(stRegistroHabilidades habilidad);

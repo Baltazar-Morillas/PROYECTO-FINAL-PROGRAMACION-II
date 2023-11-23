@@ -94,18 +94,18 @@ void dibujarEscena(stPersonaje player, stEnemigo enemy, float * vidaActual, floa
 void cargarMatrizEscena(char matrizEscena[][50], char escena[])
 {
     int i, j, t=0;
-    for(i=0; i<15; i++)
+    for(i=0; i<20; i++)
     {
         for(j=0; j<50; j++)
         {
 
             if(escena[t] == '1')
             {
-                matrizEscena[i][j] = '0';
+                matrizEscena[i][j] = ' ';
             }
             else
             {
-                matrizEscena[i][j] = '-';
+                matrizEscena[i][j] = ']';
             }
             t++;
         }
@@ -117,7 +117,7 @@ void mostrarEscena(char escena[][50])
     int i, j;
 
 
-    for(i=0; i<15; i++)
+    for(i=0; i<20; i++)
     {
         printf("\t\t\t\t");
         for(j=0; j<50; j++)

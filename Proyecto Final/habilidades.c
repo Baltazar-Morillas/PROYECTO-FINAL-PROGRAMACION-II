@@ -183,16 +183,21 @@ char menuModificarHabilidades()
     do
     {
         system ("cls");
-        printf ("\n\n\n\t\tMODIFICAR HABILIDADES\n");
-        printf ("\n\t\t\t\t\t[ 1 ] - Nombre estructura");
-        printf ("\n\t\t\t\t\t[ 2 ] - Damage");
-        printf ("\n\t\t\t\t\t[ 3 ] - ID habilidad");
-        printf ("\n\t\t\t\t\t[ 4 ] - Mana");
-        printf ("\n\t\t\t\t\t[ 5 ] - Usos");
-        printf ("\n\t\t\t\t\t[ 6 ] - Efectos");
-        printf ("\n\t\t\t\t\t[ 7 ] - Clase");
-        printf ("\n\t\t\t\t\t[ 8 ] - Sprite");
-        printf ("\n\t\t\t\t\t[ 0 ] - Salir\n");
+        printf("                               /--------------------------------------------------\\\n");
+        printf("                               |                                                  |\n");
+        printf("                               |           | |Modificar Habilidades| |            |\n");
+        printf("                               |                                                  |\n");
+        printf("                               |           [1]-------Nombre--------[1]            |\n");
+        printf("                               |           [2]-------Damage--------[2]            |\n");
+        printf("                               |           [3]---------ID----------[3]            |\n");
+        printf("                               |           [4]--------Mana---------[4]            |\n");
+        printf("                               |           [5]--------Usos---------[5]            |\n");
+        printf("                               |           [6]-------Efectos-------[6]            |\n");
+        printf("                               |           [7]--------Clase--------[7]            |\n");
+        printf("                               |           [8]--------Sprite-------[8]            |\n");
+        printf("                               |           [0]--------Salir--------[0]            |\n");
+        printf("                               |                                                  |\n");
+        printf("                               \\--------------------------------------------------/\n");
         fflush(stdin);
         opcion = getche();
     }

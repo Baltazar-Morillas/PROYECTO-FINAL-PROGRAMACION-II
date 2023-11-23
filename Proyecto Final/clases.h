@@ -24,6 +24,8 @@ typedef struct stRegistroClase{
     stEstadisticas estadisticas;
 }stRegistroClase;
 
+
+
 ///PROTOTIPADO FUNCIONES CLASE
 void cargarArchivoClases(char archivito[]);
 stRegistroClase cargarClase(stRegistroClase aux);
