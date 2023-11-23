@@ -21,8 +21,5 @@ typedef struct{
 }stEnemigo;
 
 ///PROTOTIPADO
-//stPersonaje cargarPersonaje(stClase celdaClase[], int validos);
-//stPersonaje cargarClasePersonaje(stClase celdaClase[], int id, stPersonaje personaje, int validos);
-//void mostrarPersonaje(stPersonaje personaje);
-//stPersonaje darBajaPersonaje(stPersonaje personaje);
+
 #endif // PERSONAJEYENEMIGOS_H_INCLUDED

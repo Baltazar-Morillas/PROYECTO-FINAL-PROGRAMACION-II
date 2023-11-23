@@ -215,10 +215,10 @@
 	<stdio.h>
 	<stdlib.h>
 
-1700710838 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\personajeyenemigos.c
+1700716696 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\personajeyenemigos.c
 	"personajeYenemigos.h"
 
-1700710849 c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\personajeyenemigos.h
+1700712824 c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\personajeyenemigos.h
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -287,7 +287,7 @@
 
 1700700639 c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\menu.h
 
-1700710424 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\menu.c
+1700716730 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\menu.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

@@ -210,7 +210,6 @@ void ContinuarPartida(char ArchivoP[]){
         break;
     case '2':
         BajaPersonaje(ArchivoP);
-        NuevaPartida(ArchivoP);
         break;
     }
 }
