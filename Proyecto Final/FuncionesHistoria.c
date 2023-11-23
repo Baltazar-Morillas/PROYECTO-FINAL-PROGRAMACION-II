@@ -159,6 +159,7 @@ stLugar modificarLugar(stLugar a)
 {
     int nuevoID=0;
     char sw, nuevoLugar[1000];
+    system("pause");
     printf("Que quiere modificar? 1: ID / 2: Lugar  \n");
     sw = getche();
 
@@ -166,12 +167,12 @@ stLugar modificarLugar(stLugar a)
     {
     case '1':
         printf("Ingrese el nuevo ID: \n");
-        scanf("%d", &nuevoID);
+        scanf("%d", &a.id);
         break;
     case '2':
         printf("Ingrese el lugar: \n");
         fflush(stdin);
-        gets(nuevoLugar);
+        gets(a.lugar);
         break;
     default:
         printf("Opcion incorrecta \n");
@@ -186,21 +187,28 @@ void modificarLugarArchivo(char archivo[])
     int id=0, flag = 0;
     stLugar aux;
 
-    printf("Ingrese ID del lugar a modificar: \n");
+    printf("Ingrese ID del lugar a modificar: ");
     scanf("%d", &id);
 
+    system("pause");
     if(buffer)
     {
         while(flag == 0 && fread(&aux, sizeof(stLugar), 1, buffer)>0)
         {
             if(aux.id == id)
             {
-                aux=modificarLugar(aux);
-                fseek(buffer, (long)sizeof(stLugar)* -1, 1);
-                fwrite(&aux, sizeof(stLugar), 1, buffer);
                 flag = 1;
             }
         }
+        if(flag==1){
+            aux=modificarLugar(aux);
+            fseek(buffer, (long)sizeof(stLugar)* (-1), 1);
+
+            fwrite(&aux, sizeof(stLugar), 1, buffer);
+        }else{
+            printf("El lugar no existe");
+        }
+
         fclose(buffer);
     }
     else
@@ -459,7 +467,7 @@ void mostrarArbolInOrder(arbolLugar * arbol, int combateMoment)
 void mostrarLugar(stLugar a)
 {
     printf("************************************************ \n");
-    printf("%s \n", a.lugar);
+    mostrarSprite(a.lugar);
     printf("ID: %d \n", a.id);
     printf("************************************************ \n");
 }
