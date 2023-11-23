@@ -1,10 +1,13 @@
 #include "FuncionesPeleas.h"
 
-int funcionDePelea(Usuario player, stEnemigo enemy, int pocionRoja, int pocionAzul, Fila * accionesCombate)
+int funcionDePelea(Usuario player, stEnemigo enemy, int pocionRoja, int pocionAzul)
 {
 
+    //Fila * accionesCombate;
+    //inicFila(accionesCombate);
 
-    int victoria, bombaHumo = 0, manaActual = player.Clase.estadisticas.mana, turno = 1;
+
+    int victoria = 1, bombaHumo = 0, manaActual = player.Clase.estadisticas.mana, turno = 1;
     float vidaActual = player.Clase.estadisticas.vitalidad, vidaActualEnemigo = enemy.estadisticasE.vitalidad;
 
     char matrizEscena[20][50];
@@ -12,33 +15,33 @@ int funcionDePelea(Usuario player, stEnemigo enemy, int pocionRoja, int pocionAz
     while(bombaHumo == 0 && vidaActual > 0 && vidaActualEnemigo > 0)
     {
         cargarMatrizEscena(matrizEscena, enemy.sprite);
-        dibujarEscena(player, enemy, &vidaActual, &vidaActualEnemigo, &manaActual, accionesCombate, matrizEscena, turno);
+        dibujarEscena(player, enemy, &vidaActual, &vidaActualEnemigo, &manaActual, matrizEscena, turno);
         if(player.Clase.estadisticas.agilidad >= enemy.estadisticasE.agilidad)
         {
-            menuCombate(&vidaActual,&vidaActualEnemigo, &manaActual, &pocionRoja, &pocionAzul, &bombaHumo, &player, &enemy, accionesCombate);
+            menuCombate(&vidaActual,&vidaActualEnemigo, &manaActual, &pocionRoja, &pocionAzul, &bombaHumo, &player, &enemy);
             if(vidaActualEnemigo > 0)
             {
-                accionesEnemigo(&vidaActual, &vidaActualEnemigo, player, enemy, accionesCombate);
+                accionesEnemigo(&vidaActual, &vidaActualEnemigo, player, enemy);
             }
             else
             {
-                agregar(accionesCombate, 8);
+                //agregar(accionesCombate, 8);
             }
         }
         else
         {
-            accionesEnemigo(&vidaActual, &vidaActualEnemigo, player, enemy, accionesCombate);
+            accionesEnemigo(&vidaActual, &vidaActualEnemigo, player, enemy);
 
-            menuCombate(&vidaActual,&vidaActualEnemigo, &manaActual, &pocionRoja, &pocionAzul, &bombaHumo, &player, &enemy, accionesCombate);
+            menuCombate(&vidaActual,&vidaActualEnemigo, &manaActual, &pocionRoja, &pocionAzul, &bombaHumo, &player, &enemy);
             if(vidaActual <= 0)
             {
-                agregar(accionesCombate, 9);
+                //agregar(accionesCombate, 9);
             }
         }
         system("cls");
         if(bombaHumo == 0)
         {
-            dibujarEscena(player, enemy, &vidaActual, &vidaActualEnemigo, &manaActual, accionesCombate, matrizEscena, turno);
+            dibujarEscena(player, enemy, &vidaActual, &vidaActualEnemigo, &manaActual, matrizEscena, turno);
             turno++;
             system("pause");
             system("cls");
@@ -49,18 +52,16 @@ int funcionDePelea(Usuario player, stEnemigo enemy, int pocionRoja, int pocionAz
 
 
 
-    if(bombaHumo == 1)
+    if(vidaActual <=0)
     {
-        printf("Te escapaste anashe\n");
-        victoria = 1;
+        victoria = 2;
     }
-
     return victoria;
 }
 
-void dibujarEscena(Usuario player, stEnemigo enemy, float * vidaActual, float * vidaActualEnemigo, int * manaActual, Fila * accionesCombate, char matrizEscena[][50], int turno)
+void dibujarEscena(Usuario player, stEnemigo enemy, float * vidaActual, float * vidaActualEnemigo, int * manaActual, char matrizEscena[][50], int turno)
 {
-    cajaDeTexto(accionesCombate, turno);
+    //cajaDeTexto(accionesCombate, turno);
     mostrarEscena(matrizEscena);
     printf("\t\t\tPlayer \t\t\t\t\t\t\t Enemy\n");
     printf(" Vida:");
@@ -193,7 +194,7 @@ void barraDeMana(int manaMaximo, int * manaActual)
 
 }
 
-void menuCombate(float * vidaActual, float * vidaEnemigo, int * manaActual, int * pocionRoja, int * pocionAzul, int * bombaHumo, Usuario * player, stEnemigo * enemy, Fila * accionesCombate)
+void menuCombate(float * vidaActual, float * vidaEnemigo, int * manaActual, int * pocionRoja, int * pocionAzul, int * bombaHumo, Usuario * player, stEnemigo * enemy)
 {
     int eleccion, flag = 0, resultado, criticHit, critic = 21-player->Clase.estadisticas.critico,succesfulDodge, dodge = 21 - enemy->estadisticasE.agilidad;
     srand(time(NULL));
@@ -231,15 +232,15 @@ void menuCombate(float * vidaActual, float * vidaEnemigo, int * manaActual, int 
                         *vidaEnemigo = *vidaEnemigo - (player->Clase.estadisticas.ataque * enemy->estadisticasE.defensa);
                     }
                     *manaActual = *manaActual + 15;
-                    agregar(accionesCombate, 0);
+                    //agregar(accionesCombate, 0);
                     if(criticHit == 0)
                     {
-                        agregar(accionesCombate, 5);
+                        //agregar(accionesCombate, 5);
                     }
                 }
                 else
                 {
-                    agregar(accionesCombate, 6);
+                    //agregar(accionesCombate, 6);
                 }
             }
 
@@ -248,7 +249,7 @@ void menuCombate(float * vidaActual, float * vidaEnemigo, int * manaActual, int 
         case 2:
             if(*vidaActual > 0)
             {
-                resultado = menuHabilidades(vidaActual, vidaEnemigo, manaActual, player, enemy, accionesCombate);
+                resultado = menuHabilidades(vidaActual, vidaEnemigo, manaActual, player, enemy);
                 if(resultado == 0)
                 {
                     flag = 1;
@@ -257,11 +258,11 @@ void menuCombate(float * vidaActual, float * vidaEnemigo, int * manaActual, int 
             }
             else
             {
-                agregar(accionesCombate, 9);
+                //agregar(accionesCombate, 9);
             }
             break;
         case 3:
-            items(vidaActual, manaActual, pocionRoja, pocionAzul, bombaHumo, accionesCombate);
+            items(vidaActual, manaActual, pocionRoja, pocionAzul, bombaHumo);
             if(*bombaHumo == 1)
             {
                 flag = 1;
@@ -276,7 +277,7 @@ void menuCombate(float * vidaActual, float * vidaEnemigo, int * manaActual, int 
 
 }
 
-void cajaDeTexto(Fila * accionesCombate, int turno)
+/*void cajaDeTexto(Fila * accionesCombate, int turno)
 {
     printf("\t\t\t\t++++++++++++++++++++++++++++++++++++++++\n");
     printf("\t\t\t\t\tEstas en el turno %i\n\n", turno);
@@ -373,9 +374,9 @@ void cajaDeTexto(Fila * accionesCombate, int turno)
 
 
     printf("\n\t\t\t\t++++++++++++++++++++++++++++++++++++++++\n");
-}
+}*/
 
-void accionesEnemigo(float * vidaActual, float * vidaEnemigo, Usuario player, stEnemigo enemy, Fila * accionesCombate)
+void accionesEnemigo(float * vidaActual, float * vidaEnemigo, Usuario player, stEnemigo enemy)
 {
     int accion, criticHit, critic = 21 - enemy.estadisticasE.critico, succesfulDodge, dodge = 21 - player.Clase.estadisticas.agilidad;
     srand(time(NULL));
@@ -383,13 +384,13 @@ void accionesEnemigo(float * vidaActual, float * vidaEnemigo, Usuario player, st
     if(accion == 0)
     {
         printf("El monstruo realizo una habilidad habilidad\n");
-        agregar(accionesCombate, 4);
+        //agregar(accionesCombate, 4);
     }
     else if(accion == 1)
     {
 
         *vidaEnemigo = *vidaEnemigo + (*vidaActual * 0.1);
-        agregar(accionesCombate, 24);
+        //agregar(accionesCombate, 24);
     }
     else
     {
@@ -406,11 +407,11 @@ void accionesEnemigo(float * vidaActual, float * vidaEnemigo, Usuario player, st
             {
                 *vidaActual = *vidaActual - (enemy.estadisticasE.ataque * player.Clase.estadisticas.defensa);
             }
-            agregar(accionesCombate, 3);
+            //agregar(accionesCombate, 3);
         }
         else
         {
-            agregar(accionesCombate, 7);
+            //agregar(accionesCombate, 7);
         }
     }
 
@@ -418,7 +419,7 @@ void accionesEnemigo(float * vidaActual, float * vidaEnemigo, Usuario player, st
 }
 
 
-void items(float * vidaActual, int * manaActual, int * pocionRoja, int * pocionAzul, int * bombaHumo, Fila * accionesCombate)
+void items(float * vidaActual, int * manaActual, int * pocionRoja, int * pocionAzul, int * bombaHumo)
 {
     char eleccion, confirmar;
     int flag = 0;
@@ -447,7 +448,7 @@ void items(float * vidaActual, int * manaActual, int * pocionRoja, int * pocionA
                 (*vidaActual) = (*vidaActual) + 50;
                 (*pocionRoja) = * pocionRoja - 1;
                 flag = 1;
-                agregar(accionesCombate, 10);
+                //agregar(accionesCombate, 10);
             }
             else
             {
@@ -460,7 +461,7 @@ void items(float * vidaActual, int * manaActual, int * pocionRoja, int * pocionA
                 (*manaActual) = (*manaActual) + 50;
                 (*pocionAzul) = (*pocionAzul) - 1;
                 flag = 1;
-                agregar(accionesCombate, 11);
+                //agregar(accionesCombate, 11);
             }
             else
             {
@@ -494,7 +495,7 @@ void items(float * vidaActual, int * manaActual, int * pocionRoja, int * pocionA
     }
 }
 
-int menuHabilidades(float * vidaActual, float * vidaActualEnemigo, int * manaActual, Usuario * player, stEnemigo * enemy, Fila * accionesCombate)
+int menuHabilidades(float * vidaActual, float * vidaActualEnemigo, int * manaActual, Usuario * player, stEnemigo * enemy)
 {
     int habElegida, flag, flag2 = 0;
     mostrarHabilidadesJugador(player->Clase.habilidades);
@@ -507,7 +508,7 @@ int menuHabilidades(float * vidaActual, float * vidaActualEnemigo, int * manaAct
         }while(habElegida < 0 || habElegida > 4);
 
         listaHabilidades * elegida = habilidadElegida(player->Clase.habilidades, habElegida);
-        flag = efectoHabilidad(vidaActual, vidaActualEnemigo, manaActual, player, enemy, elegida, accionesCombate);
+        flag = efectoHabilidad(vidaActual, vidaActualEnemigo, manaActual, player, enemy, elegida);
         printf("%i", flag);
         if(flag == 0)
         {
@@ -553,7 +554,7 @@ void mostrarHabilidadesJugador(listaHabilidades * lista)
     }
 }
 
-int efectoHabilidad(float * vidaActual, float * vidaActualEnemigo, int * manaActual, Usuario * player, stEnemigo * enemy, listaHabilidades * habilidadElegida, Fila * accionesCombate)
+int efectoHabilidad(float * vidaActual, float * vidaActualEnemigo, int * manaActual, Usuario * player, stEnemigo * enemy, listaHabilidades * habilidadElegida)
 {
     int flag = 1;
     char spriteHabilidad[20][50];
@@ -565,7 +566,7 @@ int efectoHabilidad(float * vidaActual, float * vidaActualEnemigo, int * manaAct
             *vidaActualEnemigo = *vidaActualEnemigo - habilidadElegida->damage;
             *manaActual = * manaActual - habilidadElegida->mana;
             habilidadElegida->usos = habilidadElegida->usos - 1;
-            agregar(accionesCombate, 2);
+            //agregar(accionesCombate, 2);
             system("cls");
             cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);
             printf("\t\t\t\tUtilizaste %s!\n", habilidadElegida->nombreHabilidad);
@@ -586,11 +587,11 @@ int efectoHabilidad(float * vidaActual, float * vidaActualEnemigo, int * manaAct
             *vidaActualEnemigo = *vidaActualEnemigo - habilidadElegida->damage;
             *manaActual = * manaActual - habilidadElegida->mana;
             enemy->estadisticasE.defensa = enemy->estadisticasE.defensa + 0.2;
-            agregar(accionesCombate, 12);
+            //agregar(accionesCombate, 12);
             if(enemy->estadisticasE.defensa > 2)
             {
                 enemy->estadisticasE.defensa = 2;
-                agregar(accionesCombate, 13);
+                //agregar(accionesCombate, 13);
             }
             habilidadElegida->usos = habilidadElegida->usos -1;
 
@@ -613,11 +614,11 @@ int efectoHabilidad(float * vidaActual, float * vidaActualEnemigo, int * manaAct
             *vidaActualEnemigo = *vidaActualEnemigo - habilidadElegida->damage;
             *manaActual = * manaActual - habilidadElegida->mana;
             enemy->estadisticasE.ataque = enemy->estadisticasE.ataque - 3;
-            agregar(accionesCombate, 14);
+            //agregar(accionesCombate, 14);
             if(enemy->estadisticasE.ataque < 1);
             {
                 enemy->estadisticasE.ataque = 1;
-                agregar(accionesCombate, 15);
+                //agregar(accionesCombate, 15);
             }
             habilidadElegida->usos =habilidadElegida->usos -1;
             system("cls");
@@ -639,7 +640,7 @@ int efectoHabilidad(float * vidaActual, float * vidaActualEnemigo, int * manaAct
             player->Clase.estadisticas.ataque = player->Clase.estadisticas.ataque + 5;
             *manaActual = * manaActual - habilidadElegida->mana;
             habilidadElegida->usos =habilidadElegida->usos -1;
-            agregar(accionesCombate, 16);
+            //agregar(accionesCombate, 16);
             system("cls");
             cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);
             printf("\t\t\t\tUtilizaste %s!\n", habilidadElegida->nombreHabilidad);
@@ -659,7 +660,7 @@ int efectoHabilidad(float * vidaActual, float * vidaActualEnemigo, int * manaAct
             player->Clase.estadisticas.defensa = player->Clase.estadisticas.defensa - 0.2;
             *manaActual = * manaActual - habilidadElegida->mana;
             habilidadElegida->usos =habilidadElegida->usos -1;
-            agregar(accionesCombate, 17);
+            //agregar(accionesCombate, 17);
             system("cls");
             cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);
             printf("\t\t\t\tUtilizaste %s!\n", habilidadElegida->nombreHabilidad);
@@ -679,7 +680,7 @@ int efectoHabilidad(float * vidaActual, float * vidaActualEnemigo, int * manaAct
             *vidaActual = *vidaActual + 100;
             *manaActual = * manaActual - habilidadElegida->mana;
             habilidadElegida->usos =habilidadElegida->usos -1;
-            agregar(accionesCombate, 18);
+            //agregar(accionesCombate, 18);
             system("cls");
             cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);
             printf("\t\t\t\tUtilizaste %s!\n", habilidadElegida->nombreHabilidad);
@@ -698,7 +699,7 @@ int efectoHabilidad(float * vidaActual, float * vidaActualEnemigo, int * manaAct
         {
             *manaActual = * manaActual + 100;
             habilidadElegida->usos =habilidadElegida->usos -1;
-            agregar(accionesCombate, 19);
+            //agregar(accionesCombate, 19);
             system("cls");
             cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);
             printf("\t\t\t\tUtilizaste %s!\n", habilidadElegida->nombreHabilidad);
@@ -717,7 +718,7 @@ int efectoHabilidad(float * vidaActual, float * vidaActualEnemigo, int * manaAct
         {
             player->Clase.estadisticas.agilidad = player->Clase.estadisticas.agilidad + 1;
             habilidadElegida->usos =habilidadElegida->usos -1;
-            agregar(accionesCombate, 20);
+            //agregar(accionesCombate, 20);
             system("cls");
             cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);
             printf("\t\t\t\tUtilizaste %s!\n", habilidadElegida->nombreHabilidad);
@@ -737,7 +738,7 @@ int efectoHabilidad(float * vidaActual, float * vidaActualEnemigo, int * manaAct
             *vidaActualEnemigo = *vidaActualEnemigo - habilidadElegida->damage;
             *vidaActual = *vidaActual - 25;
             habilidadElegida->usos =habilidadElegida->usos -1;
-            agregar(accionesCombate, 21);
+            //agregar(accionesCombate, 21);
             system("cls");
             cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);
             printf("\t\t\t\tUtilizaste %s!\n", habilidadElegida->nombreHabilidad);
@@ -758,10 +759,10 @@ int efectoHabilidad(float * vidaActual, float * vidaActualEnemigo, int * manaAct
             *vidaActual = *vidaActual - 25;
             *manaActual = * manaActual - habilidadElegida->mana;
             habilidadElegida->usos =habilidadElegida->usos -1;
-            agregar(accionesCombate, 22);
+            //agregar(accionesCombate, 22);
             if(*vidaActual <= 0)
             {
-                agregar(accionesCombate, 23);
+                //agregar(accionesCombate, 23);
             }
             system("cls");
             cargarMatrizEscena(spriteHabilidad, habilidadElegida->sprite);

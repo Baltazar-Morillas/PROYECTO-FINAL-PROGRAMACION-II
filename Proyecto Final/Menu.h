@@ -3,7 +3,7 @@
 #include "Usuario.h"
 #include "filas.h"
 
-void Menu(char ArchivoP[],char archivitoClases[],char archivitoHabilidades[], char archivoArbol[], char archivoTexto[], char archivoEnemigo[], Fila * accionesCombate);
+void Menu(char ArchivoP[],char archivitoClases[],char archivitoHabilidades[], char archivoArbol[], char archivoTexto[], char archivoEnemigo[]);
 void InicioConPartidas();
 void InicioSinPartidas();
 void ContinuarPartida(char ArchivoP[],stClase celdaClase[], int validos);

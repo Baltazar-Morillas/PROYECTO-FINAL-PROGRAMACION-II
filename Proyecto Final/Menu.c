@@ -12,19 +12,16 @@
 #include "Usuario.h"
 #include"filas.h"
 
-void Menu(char ArchivoP[],char archivitoClases[],char archivitoHabilidades[], char archivoArbol[], char archivoTexto[], char archivoEnemigo[], Fila * accionesCombate)
+void Menu(char ArchivoP[],char archivitoClases[],char archivitoHabilidades[], char archivoArbol[], char archivoTexto[], char archivoEnemigo[])
 {
     stClase celdaClase[10];
     arbolLugar * arbolHistoria= inicArbol();
-    arbolHistoria = archivoToArbolDeListas(archivoArbol, arbolHistoria);
+    arbolHistoria = archivoToArbolDeListas(archivoArbol,archivoTexto, arbolHistoria);
 
-    int validos = pasarArchivoClaseToCelda(archivitoClases, celdaClase, 10);
-    pasarArchivoHabilidadesToCLase(celdaClase, archivitoHabilidades, validos);
-    int id=0, victoria, pocionRoja = 3, pocionAzul = 3;
-    stClase celdaClases[10];
+
     stEnemigo enemy;
-    enemy.estadisticasE = cargarStats (enemy.estadisticasE);
-    int f=0;
+
+    int f=0, validos = 0;
     Usuario Personaje;
 
     if(VerificarUsuarios(ArchivoP)==1)
@@ -57,7 +54,6 @@ void Menu(char ArchivoP[],char archivitoClases[],char archivitoHabilidades[], ch
             {
             case '1':
                 Personaje=NuevaPartida(ArchivoP,celdaClase,validos);
-                funcionDePelea(Personaje, enemy, pocionRoja, pocionAzul, accionesCombate);
                 arbolHistoria = movermeA(arbolHistoria, 0, Personaje, archivoEnemigo);
 
 

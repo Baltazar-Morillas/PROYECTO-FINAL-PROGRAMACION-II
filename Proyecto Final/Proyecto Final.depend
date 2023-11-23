@@ -1,14 +1,15 @@
 # depslib dependency file v1.0
-1700699467 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\funcionespeleas.c
+1700726042 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\funcionespeleas.c
 	"FuncionesPeleas.h"
 
-1700694132 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\funcionespeleas.h
+1700725782 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\funcionespeleas.h
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 	<math.h>
 	<windows.h>
 	<string.h>
+	"Usuario.h"
 	"habilidades.h"
 	"estadisticas.h"
 	"clases.h"
@@ -24,27 +25,32 @@
 	<math.h>
 	<windows.h>
 
-1700691440 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\main.c
+1700725810 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 	<math.h>
 	<windows.h>
+	"Menu.h"
+	"FuncionesHistoria.h"
 	"habilidades.h"
 	"estadisticas.h"
 	"clases.h"
+	"filas.h"
 	"FuncionesPeleas.h"
 	"personajeYenemigos.h"
 
-1700683643 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\clases.h
+1700724688 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\clases.h
 	"estadisticas.h"
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
+	<conio.h>
 	<time.h>
 	<math.h>
 	<windows.h>
 
-1700683761 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\habilidades.h
+1700724688 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\habilidades.h
 	"clases.h"
 	<stdio.h>
 	<stdlib.h>
@@ -149,16 +155,16 @@
 1700715063 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\estadisticas.c
 	"estadisticas.h"
 
-1700683643 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\clases.c
+1700724688 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\clases.c
 	"clases.h"
 
-1700683643 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\estadisticas.c
+1700724688 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\estadisticas.c
 	"estadisticas.h"
 
-1700683867 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\habilidades.c
+1700724688 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\habilidades.c
 	"habilidades.h"
 
-1700674602 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\filas.c
+1700725069 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\filas.c
 	"filas.h"
 
 1700511279 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\filas.h
@@ -186,10 +192,10 @@
 	"estadisticas.h"
 	"clases.h"
 
-1700683643 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\personajeyenemigos.c
+1700725069 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\personajeyenemigos.c
 	"personajeYenemigos.h"
 
-1700683644 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\personajeyenemigos.h
+1700725069 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\personajeyenemigos.h
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -359,4 +365,50 @@
 1700465014 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\libreriaprincipal.c
 
 1700498539 source:c:\users\balta\onedrive\escritorio\utn\github (aca esta el tp final)\proyecto-final-programacion-ii\proyecto final\funcioneslugares.c
+
+1700726471 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\funcioneshistoria.c
+	"FuncionesHistoria.h"
+
+1700726467 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\funcioneshistoria.h
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	"conio.h"
+	"Usuario.h"
+	"FuncionesPeleas.h"
+	"personajeYenemigos.h"
+	"estadisticas.h"
+
+1700725069 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\usuario.h
+	"clases.h"
+
+1700510467 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\funcioneslugares.c
+
+1700497064 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\libreriaprincipal.c
+
+1700726493 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\menu.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<time.h>
+	<windows.h>
+	"Menu.h"
+	"clases.h"
+	"FuncionesHistoria.h"
+	"habilidades.h"
+	"FuncionesPeleas.h"
+	"Usuario.h"
+	"filas.h"
+
+1700725827 d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\menu.h
+	"Usuario.h"
+	"filas.h"
+
+1700725069 source:d:\carpeta de git\proyecto-final-programacion-ii\proyecto final\usuario.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"Usuario.h"
 

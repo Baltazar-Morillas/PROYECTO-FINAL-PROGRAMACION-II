@@ -22,16 +22,15 @@ const char archivoEnemigo[]= "";
 
 int main()
 {
-    Fila  accionesCombates;
-    accionesCombates.fin=NULL;
+
 
     ///Cosas de Tata
 
-    //Menu(ArchivoP,archivitoClases,archivitoHabilidades, archivoArbol, archivoTexto, archivoEnemigo, accionesCombates);
+    Menu(ArchivoP,archivitoClases,archivitoHabilidades, archivoArbol, archivoTexto, archivoEnemigo);
 
 
     ///Cosas de chuli
-    system("color 0A");
+    /*system("color 0A");
     int id=0, victoria, pocionRoja = 3, pocionAzul = 3, validos;
     stClase celdaClases[10];
     Usuario player;
@@ -43,7 +42,7 @@ int main()
     player = NuevaPartida(ArchivoP,celdaClases, validos);
     enemy.estadisticasE = cargarStats (enemy.estadisticasE);
 
-    victoria = funcionDePelea(player, enemy, pocionRoja, pocionAzul,accionesCombates);
+    victoria = funcionDePelea(player, enemy, pocionRoja, pocionAzul);*/
 
 
 

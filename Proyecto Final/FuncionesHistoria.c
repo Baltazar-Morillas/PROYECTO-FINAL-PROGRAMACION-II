@@ -408,6 +408,7 @@ arbolLugar * movermeA(arbolLugar * arbol, int combateMoment, Usuario player, cha
             mostrarLugar(arbol->dato);
             mostrarListaConPausa(arbol->lista, combateMoment,arbol->dato.id);
             printf("COMBATE======================================\n");
+            combateMoment = funcionDePelea(player, enemy, pocionRoja, pocionAzul);
             if(combateMoment == 1)
             {
                 mostrarListaConPausa(arbol->lista, combateMoment,arbol->dato.id);
@@ -517,7 +518,7 @@ nodoTexto * archivoToLista(const char archivoRelato[], nodoTexto * lista, int id
     return lista;
 }
 
-arbolLugar * archivoToArbolDeListas(char archivo[], arbolLugar * arbol)
+arbolLugar * archivoToArbolDeListas(char archivo[],char archivo2[], arbolLugar * arbol)
 {
     FILE * buffer = fopen(archivo, "rb");
 
@@ -529,7 +530,7 @@ arbolLugar * archivoToArbolDeListas(char archivo[], arbolLugar * arbol)
         {
             if(aux.baja == 1)
             {
-                arbol = alta(archivo, arbol, aux);
+                arbol = alta(archivo2, arbol, aux);
             }
         }
         fclose(buffer);

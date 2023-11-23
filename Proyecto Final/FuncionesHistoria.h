@@ -61,7 +61,7 @@ nodoTexto * agregarFinalLista(nodoTexto * lista, nodoTexto * nuevoNodo);
 void cargarArchivoLugar(char archivo[], stLugar a);
 void cargarArchivoTexto(char archivo[], stTexto a);
 stLugar cargarRegistro(); //Funcion auxiliar de cargarArchivoLugar
-arbolLugar * archivoToArbolDeListas(char archivo[], arbolLugar * arbol);
+arbolLugar * archivoToArbolDeListas(char archivo[], char archivo2[], arbolLugar * arbol);
 nodoTexto * archivoToLista(const char archivoRelato[], nodoTexto * lista, int id);
 arbolLugar * movermeA(arbolLugar * arbol, int combateMoment, Usuario player, char archivoEnemigo[]);
 
