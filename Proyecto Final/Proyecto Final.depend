@@ -301,7 +301,7 @@
 	"Usuario.h"
 	"filas.h"
 
-1700730270 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\menu.c
+1700733721 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\menu.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -418,14 +418,14 @@
 	<string.h>
 	"Usuario.h"
 
-1700730243 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\funcioneshistoria.c
+1700733721 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\funcioneshistoria.c
 	"FuncionesHistoria.h"
 
-1700730243 c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\funcioneshistoria.h
+1700732083 c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\funcioneshistoria.h
 	<stdio.h>
 	<stdlib.h>
-	"string.h"
-	"conio.h"
+	<string.h>
+	<conio.h>
 	"Usuario.h"
 	"FuncionesPeleas.h"
 	"personajeYenemigos.h"

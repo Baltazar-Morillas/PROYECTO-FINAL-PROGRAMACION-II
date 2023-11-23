@@ -312,7 +312,7 @@ Usuario NuevaPartida(char ArchivoP[],stClase celdaClase[], int validos)
     while(f==0);
     system("cls");
 
-    //UsuarioToarchivo(Personaje,ArchivoP);
+    UsuarioToarchivo(Personaje,ArchivoP);
     return Personaje;
 
 }
@@ -633,11 +633,11 @@ void Admin(char archivitoClases[],char archivitoHabilidades[],char archivoTexto[
 
                     if(res==1)
                     {
-
-                        printf("\nIngrese ID del lugar que quiera dar de BAJA\n");
+                        printf("\nIngrese ID del lugar que quiera dar de ALTA\n");
                         printf("||-->>");
                         scanf("%i",&id);
-                        darDeAltaLugarArchivo(archivoArbol,id);
+
+                        darDeAltaLugarArchivo(archivoArbol);
                     }
                     break;
                 case '4':
@@ -647,11 +647,9 @@ void Admin(char archivitoClases[],char archivitoHabilidades[],char archivoTexto[
                     printf("                                              | |----Alta-----| |                \n");
                     mostrarArchivoLugarAlta(archivoArbol);
 
-                    printf("\nIngrese ID del lugar que quiera MODIFICAR\n");
-                    printf("||-->>");
-                    scanf("%i",&id);
 
-                    modificarEnemigoArchivo(archivoArbol);
+
+                    modificarLugarArchivo(archivoArbol);
                     break;
                 default:
                     F2=1;
