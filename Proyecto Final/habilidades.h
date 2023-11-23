@@ -35,15 +35,17 @@ typedef struct listaHabilidades{
     struct listaHabilidades * siguiente;
 }listaHabilidades;
 
+
 typedef struct nodoHabilidades{
     stRegistroHabilidades registro;
     struct nodoHabilidades * siguiente;
 }nodoHabilidades;
 
+
 ///PROTOTIPADO FUNCIONES HABILIDADES
 void cargarArchivoHabilidades(char archivito[]);
 stRegistroHabilidades cargarHabilidad(stRegistroHabilidades habilidad);
-void mostrarArchivoHabilidadesAltaOrdenado(char archivito[]);
+int mostrarArchivoHabilidadesAltaOrdenado(char archivito[]);
 void mostrarHabilidad(stRegistroHabilidades aux);
 void modificarArchivoHabilidades(char archivito[], int id);
 stRegistroHabilidades modificarHabilidades(stRegistroHabilidades aux);
@@ -58,7 +60,7 @@ listaHabilidades * registroToLista(listaHabilidades * nodo, stRegistroHabilidade
 listaHabilidades * inicListaHabilidad();
 void darBajaHabilidad(char archivito[], int idHabilidad);
 void darAltaHabilidad(char archivito[], int idHabilidad);
-void mostrarArchivoHabilidadesBajaOrdenado(char archivito[]);
+int mostrarArchivoHabilidadesBajaOrdenado(char archivito[]);
 char menuMostrarHabilidadOrdenada();
 void mostrarListaOrdenadaHabilidades(nodoHabilidades * lista);
 void mostrarListaHabilidadesRecursivaAscendente(nodoHabilidades * lista);

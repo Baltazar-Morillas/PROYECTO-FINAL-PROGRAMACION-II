@@ -31,10 +31,11 @@ typedef struct nodoClases{
     struct nodoClases * siguiente;
 }nodoClases;
 
+
 ///PROTOTIPADO FUNCIONES CLASE
 void cargarArchivoClases(char archivito[]);
 stRegistroClase cargarClase(stRegistroClase aux);
-void mostrarArchivoAltaClasesOrdenado(char archivito[]);
+int mostrarArchivoAltaClasesOrdenado(char archivito[]);
 void mostrarClase(stRegistroClase aux);
 void modificarArchivoClases(char archivito[], int id);
 stRegistroClase modificarClases(stRegistroClase aux);
@@ -47,7 +48,7 @@ int crearNuevaClase(stClase celdaClase[], stRegistroClase nuevo, int validos);
 void darBajaClase(char archivito[], int idClase);
 void darAltaClase(char archivito[], int idClase);
 char menuClases();
-void mostrarClasesBajasArchivoOrdenado(char archivito[]);
+int mostrarClasesBajasArchivoOrdenado(char archivito[]);
 void mostrarListaClasesRecursivaDescendiente(nodoClases * lista);
 void mostrarListaClasesRecursivaAscendente(nodoClases * lista);
 nodoClases * agregarNodoOrdenadoClases(nodoClases * lista, nodoClases * nuevo);
