@@ -16,16 +16,21 @@ int main()
 {
 
     ///Cosas de chuli
-    /*system("color 0B");
-    int id=0, victoria, pocionRoja = 3, pocionAzul = 3;
+    system("color 0A");
+    int id=0, victoria, pocionRoja = 3, pocionAzul = 3, validos;
+    stClase celdaClases[10];
     stPersonaje player;
     stEnemigo enemy;
 
-    player.clase.estadisticas = cargarStats(player.clase.estadisticas);
+    validos = pasarArchivoClaseToCelda(archivitoClases, celdaClases, 10);
+    pasarArchivoHabilidadesToCLase(celdaClases, archivitoHabilidades, validos);
+
+
+    player = cargarPersonaje(celdaClases, validos);
     enemy.estadisticasE = cargarStats (enemy.estadisticasE);
 
     victoria = funcionDePelea(player, enemy, pocionRoja, pocionAzul);
-    */
+
 
 
     ///Cosas de balta

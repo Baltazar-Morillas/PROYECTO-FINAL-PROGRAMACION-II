@@ -15,13 +15,16 @@
 int funcionDePelea(stPersonaje player, stEnemigo enemy, int pocionRoja, int pocionAzul);
 void cargarMatrizEscena(char matrizEscena[][50], char escena[]);
 void mostrarEscena(char escena[][50]);
-void barraDeVida(int vidaMaxima, int vidaActual);
-void barraDeMana(int manaMaximo, int manaActual);
-void menuCombate(int * vidaActual, int * vidaEnemigo, int * pocionRoja, int * pocionAzul, int * bombaHumo, stPersonaje player, stEnemigo enemy, Fila * accionesCombate);
+void barraDeVida(int vidaMaxima, float * vidaActual);
+void barraDeMana(int manaMaximo, int * manaActual);
+void menuCombate(float * vidaActual, float * vidaEnemigo, int * manaActual, int * pocionRoja, int * pocionAzul, int * bombaHumo, stPersonaje * player, stEnemigo * enemy, Fila * accionesCombate);
 void cajaDeTexto(Fila * accionesCombate, int turno);
-int accionesEnemigo(int * vidaActual, int * vidaEnemigo,stPersonaje player, stEnemigo enemy, Fila * accionesCombate);
-void items(int * vidaActual, int * manaActual, int * pocionRoja, int * pocionAzul, int * bombaHumo);
-void dibujarEscena(stPersonaje player, stEnemigo enemy, int vidaActual, int vidaActualEnemigo, int manaActual, Fila * accionesCombate, char matrizEscena[][50], int turno);
-
+void accionesEnemigo(float * vidaActual, float * vidaEnemigo,stPersonaje player, stEnemigo enemy, Fila * accionesCombate);
+void items(float * vidaActual, int * manaActual, int * pocionRoja, int * pocionAzul, int * bombaHumo, Fila * accionesCombate);
+void dibujarEscena(stPersonaje player, stEnemigo enemy, float * vidaActual, float * vidaActualEnemigo, int * manaActual, Fila * accionesCombate, char matrizEscena[][50], int turno);
+listaHabilidades * habilidadElegida(listaHabilidades * lista, int habilidadElegida);
+int menuHabilidades(float * vidaActual, float * vidaActualEnemigo, int * manaActual, stPersonaje * player, stEnemigo * enemy, Fila * accionesCombate);
+void mostrarHabilidadesJugador(listaHabilidades * lista);
+int efectoHabilidad(float * vidaActual, float * vidaActualEnemigo, int * manaActual, stPersonaje * player, stEnemigo * enemy, listaHabilidades * habilidadElegida, Fila * accionesCombate);
 
 #endif // FUNCIONESPELEAS_H_INCLUDED
