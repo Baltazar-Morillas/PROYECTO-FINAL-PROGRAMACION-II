@@ -58,8 +58,8 @@ arbolLugar * alta(char archivo[], arbolLugar * arbol, stLugar nuevoLugar); //Da 
 nodoTexto * buscarUltimoNodoLista(nodoTexto * lista);
 arbolLugar * insertarNodoArbol(arbolLugar * arbol, stLugar dato);
 nodoTexto * agregarFinalLista(nodoTexto * lista, nodoTexto * nuevoNodo);
-void cargarArchivoLugar(char archivo[], stLugar a);
-void cargarArchivoTexto(char archivo[], stTexto a);
+void cargarArchivoLugar(char archivo[]);
+void cargarArchivoTexto(char archivo[]);
 stLugar cargarRegistro(); //Funcion auxiliar de cargarArchivoLugar
 arbolLugar * archivoToArbolDeListas(char archivo[], char archivo2[], arbolLugar * arbol);
 nodoTexto * archivoToLista(const char archivoRelato[], nodoTexto * lista, int id);

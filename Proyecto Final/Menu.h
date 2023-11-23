@@ -9,7 +9,7 @@ void InicioSinPartidas();
 void ContinuarPartida(char ArchivoP[],stClase celdaClase[], int validos);
 Usuario NuevaPartida(char ArchivoP[],stClase celdaClase[], int validos);
 void Historial(char ArchivoP[]);
-void Admin(char archivitoClases[],char archivitoHabilidades[]);
+void Admin(char archivitoClases[],char archivitoHabilidades[],char archivoTexto[],char archivoEnemigo[],char archivoArbol[]);
 
 
 #endif // MENU_H_INCLUDED

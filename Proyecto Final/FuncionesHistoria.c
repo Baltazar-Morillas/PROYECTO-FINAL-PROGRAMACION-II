@@ -581,9 +581,10 @@ stLugar cargarLugar()
     return a;
 }
 
-void cargarArchivoTexto(char archivo[], stTexto a)
+void cargarArchivoTexto(char archivo[])
 {
     FILE * buffer = fopen(archivo, "a+b");
+    stTexto a;
 
     if(buffer)
     {
@@ -605,9 +606,10 @@ void cargarArchivoTexto(char archivo[], stTexto a)
     }
 }
 
-void cargarArchivoLugar(char archivo[], stLugar a)
+void cargarArchivoLugar(char archivo[])
 {
     FILE * buffer = fopen(archivo, "ab");
+    stLugar a;
 
     if(buffer)
     {

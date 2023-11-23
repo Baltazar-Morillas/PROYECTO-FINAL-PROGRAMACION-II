@@ -218,17 +218,17 @@
 	<math.h>
 	<windows.h>
 
-1700684455 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\filas.c
+1700727100 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\filas.c
 	"filas.h"
 
 1700684455 c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\filas.h
 	<stdio.h>
 	<stdlib.h>
 
-1700716696 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\personajeyenemigos.c
+1700730051 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\personajeyenemigos.c
 	"personajeYenemigos.h"
 
-1700712824 c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\personajeyenemigos.h
+1700728867 c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\personajeyenemigos.h
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -239,7 +239,7 @@
 	"estadisticas.h"
 	"clases.h"
 
-1700707332 c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\habilidades.h
+1700727100 c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\habilidades.h
 	"clases.h"
 	<stdio.h>
 	<stdlib.h>
@@ -262,10 +262,10 @@
 1700707487 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\clases.c
 	"clases.h"
 
-1700710424 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\funcionespeleas.c
+1700727100 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\funcionespeleas.c
 	"FuncionesPeleas.h"
 
-1700710424 c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\funcionespeleas.h
+1700727100 c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\funcionespeleas.h
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -279,25 +279,29 @@
 	"filas.h"
 	"personajeYenemigos.h"
 
-1700708356 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\habilidades.c
+1700727100 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\habilidades.c
 	"habilidades.h"
 
-1700702731 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\main.c
+1700730004 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 	<math.h>
 	<windows.h>
 	"Menu.h"
+	"FuncionesHistoria.h"
 	"habilidades.h"
 	"estadisticas.h"
 	"clases.h"
+	"filas.h"
 	"FuncionesPeleas.h"
 	"personajeYenemigos.h"
 
-1700700639 c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\menu.h
+1700730070 c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\menu.h
+	"Usuario.h"
+	"filas.h"
 
-1700716730 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\menu.c
+1700730270 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\menu.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -306,14 +310,16 @@
 	<windows.h>
 	"Menu.h"
 	"clases.h"
+	"FuncionesHistoria.h"
 	"habilidades.h"
 	"FuncionesPeleas.h"
 	"Usuario.h"
+	"filas.h"
 
-1700709141 c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\usuario.h
+1700727100 c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\usuario.h
 	"clases.h"
 
-1700710534 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\usuario.c
+1700727100 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\usuario.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -411,4 +417,17 @@
 	<conio.h>
 	<string.h>
 	"Usuario.h"
+
+1700730243 source:c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\funcioneshistoria.c
+	"FuncionesHistoria.h"
+
+1700730243 c:\users\loren\desktop\proyecto-final-programacion-ii\proyecto final\funcioneshistoria.h
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	"conio.h"
+	"Usuario.h"
+	"FuncionesPeleas.h"
+	"personajeYenemigos.h"
+	"estadisticas.h"
 

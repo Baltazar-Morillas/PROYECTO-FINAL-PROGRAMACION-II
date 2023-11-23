@@ -21,5 +21,17 @@ typedef struct{
 }stEnemigo;
 
 ///PROTOTIPADO
+stEnemigo CrearEnemigo();
+void cargarEnemigoArchivo(char archivoEnemigos[]);
+stEnemigo archivoToEnemigo(char archivoEnemigos[], int id);
+
+
+void darBajaEnemigo(char archivoEnemigos[]);
+void darAltaEnemigo(char archivoEnemigos[]);
+void modificarEnemigoArchivo(char archivoEnemigos[]);
+stEnemigo modificarEnemigo(stEnemigo a);
+stEstadisticas modificarStatsEnemigos(stEstadisticas a);
+void mostrarEnemigo(stEnemigo a);
+
 
 #endif // PERSONAJEYENEMIGOS_H_INCLUDED
