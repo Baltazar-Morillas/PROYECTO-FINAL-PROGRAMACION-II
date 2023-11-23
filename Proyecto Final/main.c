@@ -21,7 +21,7 @@ int main()
 
     //Menu(ArchivoP,archivitoClases,archivitoHabilidades);
 
-    /*
+
     ///Cosas de chuli
     system("color 0A");
     int id=0, victoria, pocionRoja = 3, pocionAzul = 3, validos;
