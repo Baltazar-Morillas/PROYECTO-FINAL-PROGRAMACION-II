@@ -398,20 +398,23 @@ arbolLugar * movermeA(arbolLugar * arbol, int combateMoment, Usuario player, cha
 {
     /// combateMoment = 0: antes del combate ||| combateMoment = 1: combate ganado ||| combateMoment = 2: combate perdido
     int lado=0, victoria, pocionRoja = 3, pocionAzul = 3;
-    stEnemigo enemy;
-    enemy.estadisticasE = cargarStats(enemy.estadisticasE);
+
     if(arbol)
     {
-        if(arbol->izq != NULL && arbol->der != NULL)
-        {
+
+            stEnemigo enemy = archivoToEnemigo(archivoEnemigo, arbol->dato.id);
             printf("Lugar Actual: \n");
             mostrarLugar(arbol->dato);
-            mostrarListaConPausa(arbol->lista, combateMoment,arbol->dato.id);
+            mostrarListaConPausa(arbol->lista, 0,arbol->dato.id);
             printf("COMBATE======================================\n");
             combateMoment = funcionDePelea(player, enemy, pocionRoja, pocionAzul);
             if(combateMoment == 1)
             {
-                mostrarListaConPausa(arbol->lista, combateMoment,arbol->dato.id);
+            mostrarListaConPausa(arbol->lista, combateMoment,arbol->dato.id);
+            if(arbol->izq != NULL && arbol->der!=NULL)
+            {
+
+
                 printf("Opcion 1: \n");
                 mostrarLugar(arbol->izq->dato);
                 printf("Opcion 2: \n");
@@ -436,12 +439,14 @@ arbolLugar * movermeA(arbolLugar * arbol, int combateMoment, Usuario player, cha
                     arbol = movermeA(arbol->der, combateMoment, player, archivoEnemigo);
                 }
             }
+            }
             else if(combateMoment == 2)
             {
                 mostrarListaConPausa(arbol->lista, combateMoment,arbol->dato.id);
             }
+
         }
-    }
+
     return arbol;
 }
 

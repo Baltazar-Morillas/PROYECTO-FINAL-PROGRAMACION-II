@@ -15,13 +15,16 @@
 void Menu(char ArchivoP[],char archivitoClases[],char archivitoHabilidades[], char archivoArbol[], char archivoTexto[], char archivoEnemigo[])
 {
     stClase celdaClase[10];
+
+    int validos = pasarArchivoClaseToCelda(archivitoClases, celdaClase, 10);
+    pasarArchivoHabilidadesToCLase(celdaClase, archivitoHabilidades, validos);
     arbolLugar * arbolHistoria= inicArbol();
     arbolHistoria = archivoToArbolDeListas(archivoArbol,archivoTexto, arbolHistoria);
 
 
     stEnemigo enemy;
 
-    int f=0, validos = 0;
+    int f=0;
     Usuario Personaje;
 
     if(VerificarUsuarios(ArchivoP)==1)
@@ -255,7 +258,6 @@ Usuario NuevaPartida(char ArchivoP[],stClase celdaClase[], int validos)
     system("cls");
     Personaje.IdUsuario=IDUsuario(ArchivoP);
     Personaje.Clase.alta=0;
-    Personaje.Lugar = rand() % 7 + 1;
     printf("                               /--------------------------------------------------\\\n");
     printf("                               |                                                  |\n");
     printf("                               |      ||------Como quieres llamarte?-----||       |\n");

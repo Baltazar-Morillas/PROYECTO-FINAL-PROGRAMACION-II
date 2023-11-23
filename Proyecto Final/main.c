@@ -18,12 +18,10 @@ const char archivitoClases[]="archivitoClases.bin";
 const char archivitoHabilidades[]="archivitoHabilidades.bin";
 const char archivoArbol[] = "archivoLugar.bin";
 const char archivoTexto[] = "archivoRelato.bin";
-const char archivoEnemigo[]= "";
+const char archivoEnemigo[]= "ArchivoEnemigos.bin";
 
 int main()
 {
-
-
     ///admin=admin contrasenia=123
 
     Menu(ArchivoP,archivitoClases,archivitoHabilidades, archivoArbol, archivoTexto, archivoEnemigo);

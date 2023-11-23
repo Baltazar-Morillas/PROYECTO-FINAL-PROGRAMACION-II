@@ -64,11 +64,12 @@ stEstadisticas modificarStatsEnemigos(stEstadisticas a)
     float nuevaDefensa=0, nuevaVitalidad=0;
     char sw;
 
-    printf("Que quiere modificar? 1: agilidad / 2: ataque / 3: critico / 4: defensa / 5: mana / 6: vitalidad / Cualquier otro caracter para dejar de cargar \n");
-    sw = getche();
+
 
     do
     {
+        printf("Que quiere modificar? 1: agilidad / 2: ataque / 3: critico / 4: defensa / 5: mana / 6: vitalidad / Cualquier otro caracter para dejar de cargar \n");
+        sw = getche();
         switch(sw)
         {
         case '1':
